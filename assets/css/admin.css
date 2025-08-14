@@ -1,0 +1,408 @@
+/* Seção de Importação Fixa */
+.wcpfs-import-section {
+    position: sticky;
+    top: 46px;
+    z-index: 100;
+    margin-bottom: 30px;
+    background: #fff;
+    box-shadow: 0 0px 14px rgba(0,0,0,0.12);
+    border-radius: 8px;
+}
+
+.wcpfs-import-card {
+    padding: 20px;
+    border: 1px solid #c3c4c7;
+    border-radius: 8px;
+    background-color: #fff;
+    color: white;
+}
+
+.wcpfs-import-card h2 {
+    margin: 0 0 16px 0;
+    color: #1d2327;
+    font-size: 18px;
+}
+
+.wcpfs-form-row {
+    display: flex;
+    gap: 20px;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.wcpfs-form-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.wcpfs-submit-col {
+    flex: 0 0 auto;
+}
+
+.wcpfs-form-col label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.wcpfs-form-col input[type="file"],
+.wcpfs-form-col select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    
+}
+.wcpfs-form-col select {
+    padding: 7px 24px 7px 10px;
+}
+
+.wcpfs-form-col small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 12px;
+}
+
+.wcpfs-import-btn {
+    padding: 7px 24px !important;
+    margin-top: 26px !important;
+}
+
+/* Resultados da Importação */
+#wcpfs-import-results {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    color: #333;
+}
+
+#wcpfs-import-results h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Guia do Usuário */
+.wcpfs-guide-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.wcpfs-guide-header {
+    background: linear-gradient(315deg, #FF7400, #FF8E31);
+    color: #fff;
+    padding: 30px;
+}
+
+.wcpfs-guide-header h1,
+.wcpfs-guide-header span,
+.wcpfs-guide-header h2 {
+    margin: 0;
+    padding: 0;
+    color: #fff !important;
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    line-height: 1.1em;
+}
+
+.wcpfs-guide-header p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.wcpfs-guide-content {
+    padding: 0;
+}
+
+.wcpfs-guide-section {
+    padding: 30px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.wcpfs-guide-section:last-child {
+    border-bottom: none;
+}
+
+.wcpfs-guide-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 22px;
+    color: #333;
+    border-left: 4px solid #2551b7;
+    padding-left: 15px;
+}
+
+.wcpfs-guide-section h4 {
+    margin: 20px 0 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Exemplos de Tabela */
+.wcpfs-format-example {
+    padding-bottom: 8px;
+}
+
+.wcpfs-table-example {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.wcpfs-table-example table {
+    width: 100%;
+    max-width: 340px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.wcpfs-table-example th,
+.wcpfs-table-example td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #c3c4c7;
+}
+
+.wcpfs-table-example th {
+    background: #2551b7;
+    color: white;
+    font-weight: 600;
+}
+
+.wcpfs-table-example tr:hover {
+    background: #f8f9fa;
+}
+
+/* Regras */
+.wcpfs-rules {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff9e6;
+    border: 1px solid #ffeaa7;
+    border-radius: 0 8px 8px 0;
+    border-left: 4px solid #f39c12;
+}
+
+.wcpfs-rules ul {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+}
+
+.wcpfs-rules li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Passos */
+.wcpfs-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.wcpfs-step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 12px;
+}
+
+.wcpfs-step-number {
+    flex: 0 0 40px;
+    height: 40px;
+    background: #2551b7;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.wcpfs-step-content h4 {
+    margin: 0 0 8px 0;
+    color: #333;
+}
+
+.wcpfs-step-content p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Problemas */
+.wcpfs-problem {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff2f4;
+    border: 1px solid #f5c6cb;
+    border-radius: 0 8px 8px 0;
+    border-left: 4px solid #dc3545;
+}
+
+.wcpfs-problem h4 {
+    margin: 0 0 10px 0;
+    color: #721c24;
+}
+
+.wcpfs-problem p {
+    margin: 5px 0;
+    color: #721c24;
+}
+
+.wcpfs-problem ul {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+    color: #721c24;
+}
+
+/* Dicas */
+.wcpfs-tips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .wcpfs-tips {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wcpfs-tip {
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    border-left: 4px solid;
+}
+
+.wcpfs-tip-success {
+    background: #eef7f0;
+    border-left-color: #28a745;
+}
+
+.wcpfs-tip-warning {
+    background: #fff9e6;
+    border-left-color: #ffc107;
+}
+
+.wcpfs-tip h4 {
+    margin: 0 0 15px 0;
+}
+
+.wcpfs-tip ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.wcpfs-tip li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Exemplo Prático */
+.wcpfs-example {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.wcpfs-example h4 {
+    margin: 0 0 15px 0;
+    color: #004085;
+}
+
+.wcpfs-example ol {
+    margin: 0;
+    padding-left: 20px;
+    color: #004085;
+}
+
+.wcpfs-example li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Seção de Suporte */
+.wcpfs-support-section {
+    background: linear-gradient(315deg,#03277a 0%,#3f71e5 100%);
+    color: #1d2327;
+    border: 1px solid #c3c4c7;
+    padding-block: 40px 25px;
+}
+
+.wcpfs-support-section h3 {
+    color: white;
+    border-left-color: white;
+}
+
+.wcpfs-support-section p,
+.wcpfs-support-section li {
+    color: rgba(255,255,255,0.9);
+}
+
+/* Estados de Loading e Resultados */
+.wcpfs-success {
+    color: #00a32a;
+    font-weight: 600;
+}
+
+.wcpfs-error {
+    color: #d63638;
+    font-weight: 600;
+}
+
+.wcpfs-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #2551b7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .wcpfs-form-row {
+        flex-direction: column;
+    }
+    
+    .wcpfs-form-col {
+        min-width: auto;
+    }
+    
+    .wcpfs-guide-header {
+        padding: 20px;
+    }
+
+    .wcpfs-guide-header h1,
+    .wcpfs-guide-header span,
+    .wcpfs-guide-header h2 {
+        font-size: 24px;
+    }
+    
+    .wcpfs-guide-section {
+        padding: 20px;
+    }
+    
+    .wcpfs-step {
+        flex-direction: column;
+        text-align: center;
+    }
+}
