@@ -36,6 +36,16 @@ define('WCPFS_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WCPFS_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('WCPFS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 
+// Carrega PhpSpreadsheet ANTES de verificar WooCommerce
+if (file_exists(__DIR__ . '/vendor/phpoffice/PhpSpreadsheet-5.0.0/src/Bootstrap.php')) {
+    require_once __DIR__ . '/vendor/phpoffice/PhpSpreadsheet-5.0.0/src/Bootstrap.php';
+} else {
+    // Fallback: tenta autoload se existir
+    if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+        require_once __DIR__ . '/vendor/autoload.php';
+    }
+}
+
 // Verifica se o WooCommerce está ativo
 if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
     add_action('admin_notices', 'wcpfs_woocommerce_missing_notice');

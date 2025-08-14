@@ -72,11 +72,11 @@ class WCPFS_Admin {
             <div class="wcpfs-guide-container">
                 <div class="wcpfs-guide-header">
                     <div class="wcpfs-guide-header_content-wrapper">
-                        <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+                        <h1 style="display: inline-block;"><?php echo esc_html(get_admin_page_title()); ?></h1>
                         <span style="display: inline-block; position: relative; top: -2px; margin-inline: 5px 3px;">|</span>
-                        <h2><?php _e('Guia Completo', 'price-from-sheet-woocommerce'); ?></h2>
+                        <h2 syle="display: inline-block;"><?php _e('Guia Completo', 'price-from-sheet-woocommerce'); ?></h2>
                     </div>
-                    <p><?php _e('Aprenda como atualizar os preços dos seus produtos em massa.', 'price-from-sheet-woocommerce'); ?></p>
+                    <p style="margin-top: 4px;"><?php _e('Aprenda como atualizar os preços dos seus produtos em massa.', 'price-from-sheet-woocommerce'); ?></p>
                 </div>
                 
                 <div class="wcpfs-guide-content">

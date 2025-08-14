@@ -1,4 +1,4 @@
-# Woocommerce Price From Sheet
+# WooCommerce Price From Sheet
 
 Plugin WordPress para importar preços de produtos WooCommerce a partir de planilhas.
 

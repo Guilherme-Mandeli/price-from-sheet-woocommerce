@@ -31,7 +31,6 @@
 }
 
 .wcpfs-form-col {
-    flex: 1;
     min-width: 200px;
 }
 
@@ -55,6 +54,12 @@
     font-size: 14px;
     
 }
+
+.wcpfs-form-col input[type="file"].accepted {
+    border-color: #008000;
+    box-shadow: 0 0 0 2px #00800091;
+}
+
 .wcpfs-form-col select {
     padding: 7px 24px 7px 10px;
 }

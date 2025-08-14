@@ -1,4 +1,26 @@
 jQuery(document).ready(function($) {
+    // Event listener para mudança no input de arquivo
+    $('#wcpfs_file').on('change', function() {
+        var fileInput = $(this);
+        var file = this.files[0];
+        
+        // Remove classes anteriores
+        fileInput.removeClass('accepted');
+        
+        if (file) {
+            // Verifica se o arquivo tem uma extensão válida
+            var fileName = file.name.toLowerCase();
+            var validExtensions = ['.csv', '.xlsx', '.xls'];
+            var isValidFile = validExtensions.some(function(ext) {
+                return fileName.endsWith(ext);
+            });
+            
+            if (isValidFile && file.size > 0) {
+                // Adiciona a classe accepted se o arquivo é válido
+                fileInput.addClass('accepted');
+            }
+        }
+    });
     $('#wcpfs-import-form').on('submit', function(e) {
         e.preventDefault();
         
