@@ -1,3 +1,5 @@
+[English](README.md) | [Português](README.pt-BR.md)
+
 # WooCommerce Price From Sheet
 
 Plugin WordPress para importação em massa de preços de produtos WooCommerce através de planilhas CSV e Excel.
