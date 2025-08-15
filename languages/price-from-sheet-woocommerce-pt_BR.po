@@ -16,7 +16,7 @@ msgstr ""
 #: includes/class-wcpfs-admin.php:21
 #: includes/class-wcpfs-admin.php:22
 msgid "Price From Sheet"
-msgstr "Preço da Planilha"
+msgstr "Preço por Planilha"
 
 #: includes/class-wcpfs-admin.php:42
 msgid "Import Prices"
@@ -71,12 +71,12 @@ msgid "Update modes:"
 msgstr "Modos de atualização:"
 
 #: includes/class-wcpfs-admin.php:92
-msgid "<strong>Update existing prices:</strong> will set the new value for all products listed in the file"
-msgstr "<strong>Atualizar preços existentes:</strong> definirá o novo valor para todos os produtos listados no arquivo"
+msgid "<strong>Update existing prices:</strong> will set the new value for all products listed in the file."
+msgstr "<strong>Atualizar preços existentes:</strong> definirá o novo valor para todos os produtos listados no arquivo."
 
 #: includes/class-wcpfs-admin.php:93
-msgid "<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file"
-msgstr "<strong>Apenas adicionar novos preços:</strong> definirá o novo valor apenas para produtos sem preço definido que estão listados no arquivo"
+msgid "<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file."
+msgstr "<strong>Apenas adicionar novos preços:</strong> definirá o novo valor apenas para produtos sem preço definido que estão listados no arquivo."
 
 #: includes/class-wcpfs-admin.php:99
 msgid "Preparing your spreadsheet"

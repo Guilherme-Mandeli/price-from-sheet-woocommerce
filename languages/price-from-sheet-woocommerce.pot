@@ -70,11 +70,11 @@ msgid "Update modes:"
 msgstr ""
 
 #: includes/class-wcpfs-admin.php:92
-msgid "<strong>Update existing prices:</strong> will set the new value for all products listed in the file"
+msgid "<strong>Update existing prices:</strong> will set the new value for all products listed in the file."
 msgstr ""
 
 #: includes/class-wcpfs-admin.php:93
-msgid "<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file"
+msgid "<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file."
 msgstr ""
 
 #: includes/class-wcpfs-admin.php:99

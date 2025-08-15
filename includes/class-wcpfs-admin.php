@@ -89,8 +89,8 @@ class WCPFS_Admin {
                         
                         <h4><?php _e('Update modes:', 'price-from-sheet-woocommerce'); ?></h4>
                         <ul>
-                            <li><?php _e('<strong>Update existing prices:</strong> will set the new value for all products listed in the file', 'price-from-sheet-woocommerce'); ?></li>
-                            <li><?php _e('<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('<strong>Update existing prices:</strong> will set the new value for all products listed in the file.', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file.', 'price-from-sheet-woocommerce'); ?></li>
                         </ul>
                     </div>
                     
