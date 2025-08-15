@@ -36,14 +36,32 @@ define('WCPFS_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WCPFS_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('WCPFS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 
-// Carrega PhpSpreadsheet ANTES de verificar WooCommerce
-if (file_exists(__DIR__ . '/vendor/phpoffice/PhpSpreadsheet-5.0.0/src/Bootstrap.php')) {
-    require_once __DIR__ . '/vendor/phpoffice/PhpSpreadsheet-5.0.0/src/Bootstrap.php';
-} else {
-    // Fallback: tenta autoload se existir
-    if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-        require_once __DIR__ . '/vendor/autoload.php';
+// Função para carregar PHPSpreadsheet
+function wcpfs_load_phpspreadsheet() {
+    $autoload_file = __DIR__ . '/vendor/autoload.php';
+    
+    if (file_exists($autoload_file)) {
+        require_once $autoload_file;
+        
+        // Verifica se as classes principais estão disponíveis
+        return class_exists('\\PhpOffice\\PhpSpreadsheet\\IOFactory') && 
+               interface_exists('\\Psr\\SimpleCache\\CacheInterface') &&
+               class_exists('\\Composer\\Pcre\\Preg');  // NOVA VERIFICAÇÃO
     }
+    
+    return false;
+}
+
+// Carrega PhpSpreadsheet ANTES de verificar WooCommerce
+if (!wcpfs_load_phpspreadsheet()) {
+    add_action('admin_notices', 'wcpfs_phpspreadsheet_missing_notice');
+    return;
+}
+
+function wcpfs_phpspreadsheet_missing_notice() {
+    echo '<div class="notice notice-error"><p>';
+    echo __('Price From Sheet: PHPSpreadsheet não pôde ser carregado. Verifique se os arquivos estão presentes em /vendor/phpoffice/.', 'price-from-sheet-woocommerce');
+    echo '</p></div>';
 }
 
 // Verifica se o WooCommerce está ativo

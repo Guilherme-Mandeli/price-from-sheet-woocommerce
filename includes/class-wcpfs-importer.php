@@ -20,6 +20,14 @@ class WCPFS_Importer {
             );
         }
         
+        // Verifica tamanho do arquivo (Excel pode ser maior que CSV)
+        if ($file['size'] > 10 * 1024 * 1024) { // 10MB
+            return array(
+                'success' => false,
+                'message' => __('Arquivo muito grande. Máximo permitido: 10MB. Para arquivos maiores, use CSV.', 'price-from-sheet-woocommerce')
+            );
+        }
+
         $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         
         switch (strtolower($file_extension)) {
@@ -78,12 +86,52 @@ class WCPFS_Importer {
      * Importa de arquivo Excel
      */
     private function import_from_excel($file_path, $update_mode) {
-        // Aqui você implementaria a leitura de Excel usando uma biblioteca como PhpSpreadsheet
-        // Por simplicidade, retornamos um erro por enquanto
-        return array(
-            'success' => false,
-            'message' => __('Importação de Excel ainda não implementada. Use CSV por enquanto.', 'price-from-sheet-woocommerce')
-        );
+        try {
+            // Verifica se consegue carregar PHPSpreadsheet
+            if (!class_exists('\\PhpOffice\\PhpSpreadsheet\\IOFactory')) {
+                return array(
+                    'success' => false,
+                    'message' => __('Funcionalidade Excel temporariamente indisponível. Use CSV como alternativa.', 'price-from-sheet-woocommerce')
+                );
+            }
+            
+            // Tenta carregar o arquivo
+            $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file_path);
+            $worksheet = $spreadsheet->getActiveSheet();
+            
+            // Converte para array simples
+            $rawData = $worksheet->toArray(null, true, true, true);
+            
+            if (empty($rawData)) {
+                return array(
+                    'success' => false,
+                    'message' => __('Arquivo Excel está vazio.', 'price-from-sheet-woocommerce')
+                );
+            }
+            
+            // Processa dados
+            $data = array();
+            $header = array_map('strtolower', array_map('trim', $rawData[1]));
+            
+            for ($i = 2; $i <= count($rawData); $i++) {
+                if (isset($rawData[$i]) && !empty(array_filter($rawData[$i]))) {
+                    $row_data = array_combine($header, $rawData[$i]);
+                    $row_data['_line_number'] = $i;
+                    $data[] = $row_data;
+                }
+            }
+            
+            return $this->process_import_data($data, $update_mode);
+            
+        } catch (Exception $e) {
+            return array(
+                'success' => false,
+                'message' => sprintf(
+                    __('Erro Excel: %s. Tente converter para CSV.', 'price-from-sheet-woocommerce'),
+                    $e->getMessage()
+                )
+            );
+        }
     }
     
     /**
@@ -227,5 +275,4 @@ class WCPFS_Importer {
             'errors' => $errors
         );
     }
-}
-?>
+}?>

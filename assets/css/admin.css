@@ -15,6 +15,8 @@
     border-radius: 8px;
     background-color: #fff;
     color: white;
+    max-height: 40svh;
+    overflow: auto;
 }
 
 .wcpfs-import-card h2 {
@@ -80,9 +82,9 @@
 #wcpfs-import-results {
     margin-top: 20px;
     padding: 20px;
-    background: rgba(255,255,255,0.9);
+    background-color: #f8f9fa;
     border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 6px;
+    border-radius: 8px;
     color: #333;
 }
 
@@ -320,6 +322,7 @@
     margin: 20px 0;
     padding: 20px;
     background: #f8f9fa;
+    border-radius: 8px;
 }
 
 .wcpfs-example h4 {

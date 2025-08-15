@@ -3,11 +3,20 @@ jQuery(document).ready(function($) {
     $('#wcpfs_file').on('change', function() {
         var fileInput = $(this);
         var file = this.files[0];
+        var submitBtn = $('.wcpfs-import-btn');
         
         // Remove classes anteriores
         fileInput.removeClass('accepted');
         
         if (file) {
+            var maxSize = 10 * 1024 * 1024; // 10MB em bytes
+            if (file.size > maxSize) {
+                alert('Arquivo muito grande. Máximo permitido: 10MB');
+                fileInput.val(''); // Limpa o input
+                submitBtn.prop('disabled', true);
+                return;
+            }
+            
             // Verifica se o arquivo tem uma extensão válida
             var fileName = file.name.toLowerCase();
             var validExtensions = ['.csv', '.xlsx', '.xls'];
@@ -18,7 +27,15 @@ jQuery(document).ready(function($) {
             if (isValidFile && file.size > 0) {
                 // Adiciona a classe accepted se o arquivo é válido
                 fileInput.addClass('accepted');
+                // HABILITA o botão de importação
+                submitBtn.prop('disabled', false);
+            } else {
+                // DESABILITA o botão se o arquivo não é válido
+                submitBtn.prop('disabled', true);
             }
+        } else {
+            // DESABILITA o botão se nenhum arquivo foi selecionado
+            submitBtn.prop('disabled', true);
         }
     });
     $('#wcpfs-import-form').on('submit', function(e) {
@@ -59,5 +76,10 @@ jQuery(document).ready(function($) {
                 $('#wcpfs-results-content').html('<div class="wcpfs-error">Erro na comunicação com o servidor.</div>');
             }
         });
+    });
+    
+    // Event listener para o botão de fechar o modal
+    $(document).on('click', '.wcpfs-close-btn', function() {
+        $('#wcpfs-import-results').slideUp(300);
     });
 });

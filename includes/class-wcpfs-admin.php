@@ -46,7 +46,7 @@ class WCPFS_Admin {
                             <div class="wcpfs-form-col">
                                 <label for="wcpfs_file"><?php _e('Arquivo da Planilha', 'price-from-sheet-woocommerce'); ?></label>
                                 <input type="file" id="wcpfs_file" name="wcpfs_file" accept=".csv,.xlsx,.xls" required>
-                                <small><?php _e('Formatos aceitos: CSV, Excel (.xlsx, .xls)', 'price-from-sheet-woocommerce'); ?></small>
+                                <small><?php _e('Formatos aceitos: CSV (.csv), Excel (.xlsx, .xls) - Máximo: 10MB', 'price-from-sheet-woocommerce'); ?></small>
                             </div>
                             <div class="wcpfs-form-col">
                                 <label for="wcpfs_update_mode"><?php _e('Modo de Atualização', 'price-from-sheet-woocommerce'); ?></label>
@@ -56,12 +56,13 @@ class WCPFS_Admin {
                                 </select>
                             </div>
                             <div class="wcpfs-form-col wcpfs-submit-col">
-                                <input type="submit" class="button-primary wcpfs-import-btn" value="<?php _e('Importar Agora', 'price-from-sheet-woocommerce'); ?>">
+                                <input type="submit" class="button-primary wcpfs-import-btn" value="<?php _e('Importar Agora', 'price-from-sheet-woocommerce'); ?>" disabled="true">
                             </div>
                         </div>
                     </form>
                     
                     <div id="wcpfs-import-results" style="display: none;">
+                        <button type="button" class="wcpfs-close-btn" aria-label="Close">&times;</button>
                         <h3><?php _e('Resultados da Importação', 'price-from-sheet-woocommerce'); ?></h3>
                         <div id="wcpfs-results-content"></div>
                     </div>
@@ -74,7 +75,7 @@ class WCPFS_Admin {
                     <div class="wcpfs-guide-header_content-wrapper">
                         <h1 style="display: inline-block;"><?php echo esc_html(get_admin_page_title()); ?></h1>
                         <span style="display: inline-block; position: relative; top: -2px; margin-inline: 5px 3px;">|</span>
-                        <h2 syle="display: inline-block;"><?php _e('Guia Completo', 'price-from-sheet-woocommerce'); ?></h2>
+                        <h2 style="display: inline-block;"><?php _e('Guia Completo', 'price-from-sheet-woocommerce'); ?></h2>
                     </div>
                     <p style="margin-top: 4px;"><?php _e('Aprenda como atualizar os preços dos seus produtos em massa.', 'price-from-sheet-woocommerce'); ?></p>
                 </div>
@@ -83,7 +84,7 @@ class WCPFS_Admin {
                     <!-- O que o Plugin Faz -->
                     <div class="wcpfs-guide-section">
                         <h3><?php _e('O que o Plugin Faz?', 'price-from-sheet-woocommerce'); ?></h3>
-                        <p><?php _e('Este plugin permite atualizar preços de centenas ou milhares de produtos WooCommerce de uma só vez, usando arquivos CSV. Ao invés de alterar produto por produto manualmente, você pode fazer tudo em poucos cliques!', 'price-from-sheet-woocommerce'); ?></p>
+                        <p><?php _e('Este plugin permite atualizar preços de centenas ou milhares de produtos WooCommerce de uma só vez, usando arquivos CSV ou Excel. Ao invés de alterar produto por produto manualmente, você pode fazer tudo em poucos cliques!', 'price-from-sheet-woocommerce'); ?></p>
                     </div>
                     
                     <!-- Preparando a Planilha -->
@@ -150,7 +151,7 @@ class WCPFS_Admin {
                                 <div class="wcpfs-step-number">1</div>
                                 <div class="wcpfs-step-content">
                                     <h4><?php _e('Escolha o Arquivo', 'price-from-sheet-woocommerce'); ?></h4>
-                                    <p><?php _e('Clique em "Escolher arquivo" e selecione seu CSV preparado.', 'price-from-sheet-woocommerce'); ?></p>
+                                    <p><?php _e('Clique em "Escolher arquivo" e selecione seu arquivo CSV ou Excel preparado.', 'price-from-sheet-woocommerce'); ?></p>
                                 </div>
                             </div>
                             <div class="wcpfs-step">
@@ -218,7 +219,7 @@ class WCPFS_Admin {
                                     <li><?php _e('<strong>Preços zerados:</strong> Cuidado para não colocar preços 0.00', 'price-from-sheet-woocommerce'); ?></li>
                                     <li><?php _e('<strong>Vírgulas nos preços:</strong> Use ponto (29.90) não vírgula (29,90)', 'price-from-sheet-woocommerce'); ?></li>
                                     <li><?php _e('<strong>SKUs duplicados:</strong> Cada SKU deve ser único', 'price-from-sheet-woocommerce'); ?></li>
-                                    <li><?php _e('<strong>Produtos variáveis:</strong> O plugin atualiza o produto pai', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Produtos variáveis:</strong> Use o SKU único da variação do produto', 'price-from-sheet-woocommerce'); ?></li>
                                 </ul>
                             </div>
                         </div>
@@ -232,7 +233,7 @@ class WCPFS_Admin {
                             <ol>
                                 <li><?php _e('<strong>Exporte os produtos atuais:</strong> Use WooCommerce > Produtos > Exportar', 'price-from-sheet-woocommerce'); ?></li>
                                 <li><?php _e('<strong>Calcule os novos preços:</strong> Abra no Excel/Google Sheets e crie fórmula para aumentar 10%', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('<strong>Importe os novos preços:</strong> Salve como CSV e use este plugin', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>Importe os novos preços:</strong> Salve como CSV ou arquivo Excel com as colunas e formatos recomendados em "<i>Preparando sua planilha" e importe usando este plugin<i>', 'price-from-sheet-woocommerce'); ?></li>
                             </ol>
                         </div>
                     </div>
@@ -244,7 +245,7 @@ class WCPFS_Admin {
                         <ul>
                             <li><?php _e('1. Verifique os logs na seção de resultados acima', 'price-from-sheet-woocommerce'); ?></li>
                             <li><?php _e('2. Teste com poucos produtos primeiro', 'price-from-sheet-woocommerce'); ?></li>
-                            <li><?php _e('3. Confirme se o formato CSV está correto', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('3. Confirme se o formato do arquivo está correto', 'price-from-sheet-woocommerce'); ?></li>
                             <li><?php _e('4. Entre em contato: <strong>hooma.com.br</strong>', 'price-from-sheet-woocommerce'); ?></li>
                         </ul>
                         <hr style=" margin-bottom: 19px; margin-top: 20px; opacity: .44; border-bottom-width: 0; ">
