@@ -99,7 +99,7 @@ class WCPFS_Admin {
                         <h3><?php _e('Preparing your spreadsheet', 'price-from-sheet-woocommerce'); ?></h3>
                         <!-- Botão para baixar modelo CSV -->
                         <div class="wcpfs-template-download" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
-                            <a href="<?php echo admin_url('admin-ajax.php?action=wcpfs_download_template&nonce=' . wp_create_nonce('wcpfs_template_nonce')); ?>" class="button button-secondary">
+                            <a href="<?php echo admin_url('admin-ajax.php?action=wcpfs_download_template&nonce=' . wp_create_nonce('wcpfs_template_nonce')); ?>" class="button button-secondary" style="margin-right: 5px;">
                                 <span class="dashicons dashicons-download" style="margin-right: 2px; padding-top: 5px"></span>
                                 <?php _e('Download Template | CSV', 'price-from-sheet-woocommerce'); ?>
                             </a>

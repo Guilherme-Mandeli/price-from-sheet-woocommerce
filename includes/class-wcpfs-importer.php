@@ -154,7 +154,7 @@ class WCPFS_Importer {
                 });
                 
                 $errors[] = sprintf(
-                    __('Linha %s: SKU ou preço não encontrado. Colunas disponíveis: [%s]', 'price-from-sheet-woocommerce'),
+                    __('Line %s: SKU or price not found. Available columns: [%s]', 'price-from-sheet-woocommerce'),
                     $line_number,
                     implode(', ', $available_columns)
                 );
@@ -167,7 +167,7 @@ class WCPFS_Importer {
             // Verifica se SKU está vazio
             if (empty($sku)) {
                 $errors[] = sprintf(
-                    __('Linha %s: SKU está vazio. Preço informado: "%s"', 'price-from-sheet-woocommerce'),
+                    __('Line %s: SKU is empty. Price: "%s"', 'price-from-sheet-woocommerce'),
                     $line_number,
                     $price
                 );
@@ -177,7 +177,7 @@ class WCPFS_Importer {
             // Verifica se preço está vazio
             if (empty($price)) {
                 $errors[] = sprintf(
-                    __('Linha %s: Preço está vazio. SKU: "%s"', 'price-from-sheet-woocommerce'),
+                    __('Line %s: Price is empty. SKU: "%s"', 'price-from-sheet-woocommerce'),
                     $line_number,
                     $sku
                 );
@@ -188,7 +188,7 @@ class WCPFS_Importer {
             $price_cleaned = str_replace(',', '.', $price);
             if (!is_numeric($price_cleaned) || floatval($price_cleaned) < 0) {
                 $errors[] = sprintf(
-                    __('Linha %s: Preço inválido "%s". SKU: "%s" - Use apenas números com ponto ou vírgula como separador decimal', 'price-from-sheet-woocommerce'),
+                    __('Line %s: Invalid price "%s". SKU: "%s" - Use only numbers with dot or comma as decimal separator', 'price-from-sheet-woocommerce'),
                     $line_number,
                     $price,
                     $sku
@@ -200,7 +200,7 @@ class WCPFS_Importer {
             
             if (!$product_id) {
                 $errors[] = sprintf(
-                    __('Linha %s: Produto não encontrado. SKU: "%s" - Verifique se o SKU existe no WooCommerce', 'price-from-sheet-woocommerce'),
+                    __('Line %s: Product not found. SKU: "%s" - Check if SKU exists in WooCommerce', 'price-from-sheet-woocommerce'),
                     $line_number,
                     $sku
                 );
@@ -211,7 +211,7 @@ class WCPFS_Importer {
             
             if (!$product) {
                 $errors[] = sprintf(
-                    __('Linha %s: Erro ao carregar produto. SKU: "%s" - Produto pode estar corrompido', 'price-from-sheet-woocommerce'),
+                    __('Line %s: Error loading product. SKU: "%s" - Product may be corrupted', 'price-from-sheet-woocommerce'),
                     $line_number,
                     $sku
                 );
@@ -233,7 +233,7 @@ class WCPFS_Importer {
                         // Verifica se preço promocional é menor que o preço regular
                         if ($sale_price_value >= $price_value) {
                             $errors[] = sprintf(
-                                __('Linha %s: Preço promocional (%s) deve ser menor que o preço regular (%s). SKU: "%s"', 'price-from-sheet-woocommerce'),
+                                __('Line %s: Sale price (%s) must be less than regular price (%s). SKU: "%s"', 'price-from-sheet-woocommerce'),
                                 $line_number,
                                 $row['sale_price'],
                                 $price,
@@ -245,7 +245,7 @@ class WCPFS_Importer {
                         $product->set_sale_price($sale_price_value);
                     } else {
                         $errors[] = sprintf(
-                            __('Linha %s: Preço promocional inválido "%s". SKU: "%s" - Use apenas números', 'price-from-sheet-woocommerce'),
+                            __('Line %s: Invalid sale price "%s". SKU: "%s" - Use only numbers', 'price-from-sheet-woocommerce'),
                             $line_number,
                             $row['sale_price'],
                             $sku
@@ -259,7 +259,7 @@ class WCPFS_Importer {
                 
             } catch (Exception $e) {
                 $errors[] = sprintf(
-                    __('Linha %s: Erro ao salvar produto. SKU: "%s" - Erro: %s', 'price-from-sheet-woocommerce'),
+                    __('Line %s: Error saving product. SKU: "%s" - Error: %s', 'price-from-sheet-woocommerce'),
                     $line_number,
                     $sku,
                     $e->getMessage()
@@ -270,7 +270,7 @@ class WCPFS_Importer {
         
         return array(
             'success' => true,
-            'message' => sprintf(__('%d produtos atualizados com sucesso.', 'price-from-sheet-woocommerce'), $updated),
+            'message' => sprintf(__('%d products updated successfully.', 'price-from-sheet-woocommerce'), $updated),
             'updated' => $updated,
             'errors' => $errors
         );
