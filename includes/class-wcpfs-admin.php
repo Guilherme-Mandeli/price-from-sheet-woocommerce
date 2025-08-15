@@ -137,12 +137,36 @@ class WCPFS_Admin {
                                     <tbody>
                                         <tr><td>PROD-001</td><td>29.90</td><td>24.90</td></tr>
                                         <tr><td>PROD-002</td><td>15.50</td><td></td></tr>
-                                        <tr><td>PROD-003</td><td>89.99</td><td>79.99</td></tr>
+                                        <tr><td>PROD-003</td><td>89.99</td><td><?php _e('null', 'price-from-sheet-woocommerce'); ?></td></tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         
+                        <div class="wcpfs-keywords">
+                            <h4 style="margin-top: 4px;"><?php _e('Supported Keywords:', 'price-from-sheet-woocommerce'); ?></h4>
+                            <p style="margin-bottom 6px;"><strong><?php _e('Column:', 'price-from-sheet-woocommerce'); ?></strong> sale_price</p>
+                            <ul>
+                                <li>
+                                    <span class="sheet-keyword">null</span>
+                                    <span class="sheet-keyword">none</span>
+                                    <span class="sheet-keyword">empty</span>
+                                </li>
+                                <li>
+                                    <span class="sheet-keyword">nulo</span>
+                                    <span class="sheet-keyword">vazio</span>
+                                    <span class="sheet-keyword">nenhum</span>
+                                    <span class="sheet-keyword">sem valor</span>
+                                </li>
+                                <li>
+                                    <span class="sheet-keyword">vacío</span>
+                                    <span class="sheet-keyword">ninguno</span>
+                                    <span class="sheet-keyword">sin valor</span>
+                                </li>
+                            </ul>
+                            <p style="margin: 0;"><?php _e('The above keywords will remove the sale price value', 'price-from-sheet-woocommerce'); ?></p>
+                        </div>
+
                         <div class="wcpfs-rules">
                             <h4 style="margin-top: 4px;"><?php _e('Important Rules:', 'price-from-sheet-woocommerce'); ?></h4>
                             <ul>

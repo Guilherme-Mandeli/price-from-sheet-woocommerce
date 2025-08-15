@@ -335,7 +335,15 @@
     line-height: 1.5;
 }
 
-/* Exemplo Prático */
+.sheet-keyword {
+    background-color: #44545f;
+    color: #fff;
+    padding: 2px 8px 4px 8px;
+    border-radius: 5px;
+    margin-right: 6px;
+}
+
+.wcpfs-keywords,
 .wcpfs-example {
     margin: 20px 0;
     padding: 20px;
@@ -343,17 +351,25 @@
     border-radius: 8px;
 }
 
+.wcpfs-keywords h4,
 .wcpfs-example h4 {
     margin: 0 0 15px 0;
     color: #004085;
 }
 
+.wcpfs-keywords p,
+.wcpfs-example p {
+    color: #004085;
+}
+
+.wcpfs-keywords ul,
 .wcpfs-example ol {
     margin: 0;
     padding-left: 20px;
     color: #004085;
 }
 
+.wcpfs-keywords li,
 .wcpfs-example li {
     margin-bottom: 10px;
     line-height: 1.5;

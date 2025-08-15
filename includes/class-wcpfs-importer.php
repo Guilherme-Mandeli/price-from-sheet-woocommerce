@@ -10,6 +10,52 @@ if (!defined('ABSPATH')) {
 class WCPFS_Importer {
     
     /**
+     * Array de strings que indicam remoção do preço promocional
+     */
+    private $remove_sale_price_keywords = array(
+        'null',
+        'none', 
+        'empty',
+        'nulo',
+        'vazio',
+        'nenhum',
+        'sem-valor',
+        'vacio',
+        'ninguno',
+        'sin-valor'
+    );
+    
+    /**
+     * Slugifica uma string (remove acentos, converte para minúsculas, substitui espaços por hífens)
+     */
+    private function slugify($text) {
+        // Remove acentos
+        $text = remove_accents($text);
+        
+        // Converte para minúsculas
+        $text = strtolower($text);
+        
+        // Remove caracteres especiais e substitui espaços por hífens
+        $text = preg_replace('/[^a-z0-9\s-]/', '', $text);
+        $text = preg_replace('/[\s-]+/', '-', $text);
+        $text = trim($text, '-');
+        
+        return $text;
+    }
+    
+    /**
+     * Verifica se o valor indica remoção do preço promocional
+     */
+    private function should_remove_sale_price($value) {
+        if (empty($value)) {
+            return false; // Valores vazios mantêm comportamento atual (ignorar)
+        }
+        
+        $slugified = $this->slugify(trim($value));
+        return in_array($slugified, $this->remove_sale_price_keywords);
+    }
+    
+    /**
      * Importa preços de um arquivo
      */
     public function import_from_file($file, $update_mode = 'update') {
@@ -68,6 +114,18 @@ class WCPFS_Importer {
                 if (empty(array_filter($row))) {
                     $line_number++;
                     continue;
+                }
+                
+                // Verifica se o número de colunas da linha corresponde ao cabeçalho
+                if (count($header) !== count($row)) {
+                    // Ajusta o array $row para ter o mesmo tamanho do $header
+                    if (count($row) < count($header)) {
+                        // Adiciona valores vazios se a linha tem menos colunas
+                        $row = array_pad($row, count($header), '');
+                    } else {
+                        // Remove colunas extras se a linha tem mais colunas
+                        $row = array_slice($row, 0, count($header));
+                    }
                 }
                 
                 $row_data = array_combine($header, $row);
@@ -223,34 +281,42 @@ class WCPFS_Importer {
                 $price_value = floatval($price_cleaned);
                 $product->set_regular_price($price_value);
                 
-                // Se houver preço promocional na planilha
-                if (isset($row['sale_price']) && !empty($row['sale_price'])) {
-                    $sale_price_cleaned = str_replace(',', '.', $row['sale_price']);
+                // Processa preço promocional se a coluna existir
+                if (isset($row['sale_price'])) {
+                    $sale_price_raw = $row['sale_price'];
                     
-                    if (is_numeric($sale_price_cleaned) && floatval($sale_price_cleaned) >= 0) {
-                        $sale_price_value = floatval($sale_price_cleaned);
+                    // Se está vazio, mantém comportamento atual (ignora)
+                    if (empty($sale_price_raw)) {
+                        // Não faz nada - mantém preço promocional atual
+                    }
+                    // Se é uma string que indica remoção, remove o preço promocional
+                    else if ($this->should_remove_sale_price($sale_price_raw)) {
+                        $product->set_sale_price(''); // Remove o preço promocional
+                    }
+                    // Se é um valor numérico, processa normalmente
+                    else {
+                        $sale_price_cleaned = str_replace(',', '.', $sale_price_raw);
                         
-                        // Verifica se preço promocional é menor que o preço regular
-                        if ($sale_price_value >= $price_value) {
-                            $errors[] = sprintf(
-                                __('Line %s: Sale price (%s) must be less than regular price (%s). SKU: "%s"', 'price-from-sheet-woocommerce'),
-                                $line_number,
-                                $row['sale_price'],
-                                $price,
-                                $sku
-                            );
-                            continue;
+                        if (is_numeric($sale_price_cleaned) && floatval($sale_price_cleaned) >= 0) {
+                            $sale_price_value = floatval($sale_price_cleaned);
+                            
+                            // Verifica se preço promocional é menor que o preço regular
+                            if ($sale_price_value >= $price_value) {
+                                $errors[] = sprintf(
+                                    __('Line %s: Sale price (%s) must be less than regular price (%s). SKU: "%s"', 'price-from-sheet-woocommerce'),
+                                    $line_number,
+                                    $sale_price_raw,
+                                    $price,
+                                    $sku
+                                );
+                                continue;
+                            }
+                            
+                            $product->set_sale_price($sale_price_value);
+                        } else {
+                            // Valor não numérico e não é palavra-chave de remoção - ignora
+                            // Não faz nada - mantém preço promocional atual
                         }
-                        
-                        $product->set_sale_price($sale_price_value);
-                    } else {
-                        $errors[] = sprintf(
-                            __('Line %s: Invalid sale price "%s". SKU: "%s" - Use only numbers', 'price-from-sheet-woocommerce'),
-                            $line_number,
-                            $row['sale_price'],
-                            $sku
-                        );
-                        continue;
                     }
                 }
                 

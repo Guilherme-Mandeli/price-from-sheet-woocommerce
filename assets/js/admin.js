@@ -47,7 +47,7 @@ jQuery(document).ready(function($) {
         
         // Mostra loading
         $('#wcpfs-import-results').show();
-        $('#wcpfs-results-content').html('<div class="wcpfs-loading"></div> Importando preços...');
+        $('#wcpfs-results-content').html('<div class="wcpfs-loading"></div> ' + wcpfs_ajax.i18n.importing_prices);
         
         $.ajax({
             url: wcpfs_ajax.ajax_url,

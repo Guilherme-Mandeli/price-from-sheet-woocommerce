@@ -13,370 +13,382 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: includes/class-wcpfs-admin.php:21
-#: includes/class-wcpfs-admin.php:22
+#: /price-from-sheet-woocommerce.php:73
+msgid "Price From Sheet: PHPSpreadsheet não pôde ser carregado. Verifique se os arquivos estão presentes em /vendor/phpoffice/."
+msgstr "Price From Sheet: Não foi possível carregar o PHPSpreadsheet. Verifique se os arquivos estão presentes em /vendor/phpoffice/."
+
+#: /price-from-sheet-woocommerce.php:88
+msgid "Woocommerce Price From Sheet requer o WooCommerce para funcionar."
+msgstr "Woocommerce Price From Sheet requer o WooCommerce para funcionar."
+
+#: /includes/class-wcpfs-admin.php:25
 msgid "Price From Sheet"
-msgstr "Preço por Planilha"
+msgstr "Price From Sheet"
 
-#: includes/class-wcpfs-admin.php:42
-msgid "Import Prices"
-msgstr "Importar Preços"
-
-#: includes/class-wcpfs-admin.php:48
-msgid "Spreadsheet File"
-msgstr "Arquivo da Planilha"
-
-#: includes/class-wcpfs-admin.php:50
-msgid "Accepted formats: CSV (.csv), Excel (.xlsx, .xls) - Maximum: 10MB"
-msgstr "Formatos aceitos: CSV (.csv), Excel (.xlsx, .xls) - Máximo: 10MB"
-
-#: includes/class-wcpfs-admin.php:53
-msgid "Update Mode"
-msgstr "Modo de Atualização"
-
-#: includes/class-wcpfs-admin.php:55
-msgid "Update existing prices"
-msgstr "Atualizar preços existentes"
-
-#: includes/class-wcpfs-admin.php:56
-msgid "Only add new prices"
-msgstr "Apenas adicionar novos preços"
-
-#: includes/class-wcpfs-admin.php:60
-msgid "Import Now"
-msgstr "Importar Agora"
-
-#: includes/class-wcpfs-admin.php:67
-msgid "Import Results"
-msgstr "Resultados da Importação"
-
-#: includes/class-wcpfs-admin.php:79
-msgid "Complete Guide"
-msgstr "Guia Completo"
-
-#: includes/class-wcpfs-admin.php:81
-msgid "Learn how to update your product prices in bulk."
-msgstr "Aprenda a atualizar os preços dos produtos em massa."
-
-#: includes/class-wcpfs-admin.php:87
-msgid "What does the plugin do?"
-msgstr "O que o plugin faz?"
-
-#: includes/class-wcpfs-admin.php:88
-msgid "This plugin allows you to update prices for hundreds or thousands of WooCommerce products at once, using CSV or Excel files. Instead of changing products one by one manually, you can do everything in just a few clicks!"
-msgstr "Este plugin permite atualizar os preços de centenas ou milhares de produtos WooCommerce de uma vez, usando arquivos CSV ou Excel. Em vez de alterar os produtos manualmente, você pode fazer tudo em apenas alguns cliques!"
-
-#: includes/class-wcpfs-admin.php:90
-msgid "Update modes:"
-msgstr "Modos de atualização:"
-
-#: includes/class-wcpfs-admin.php:92
-msgid "<strong>Update existing prices:</strong> will set the new value for all products listed in the file."
-msgstr "<strong>Atualizar preços existentes:</strong> definirá o novo valor para todos os produtos listados no arquivo."
-
-#: includes/class-wcpfs-admin.php:93
-msgid "<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file."
-msgstr "<strong>Apenas adicionar novos preços:</strong> definirá o novo valor apenas para produtos sem preço definido que estão listados no arquivo."
-
-#: includes/class-wcpfs-admin.php:99
-msgid "Preparing your spreadsheet"
-msgstr "Preparando sua planilha"
-
-#: includes/class-wcpfs-admin.php:104
-msgid "Download Template | CSV"
-msgstr "Baixar Modelo | CSV"
-
-#: includes/class-wcpfs-admin.php:108
-msgid "Download Template | Excel"
-msgstr "Baixar Modelo | Excel"
-
-#: includes/class-wcpfs-admin.php:111
-msgid "Download a template file with the correct structure for import."
-msgstr "Baixe um arquivo modelo com a estrutura correta para importação."
-
-#: includes/class-wcpfs-admin.php:115
-msgid "Required Format:"
-msgstr "Formato Requerido:"
-
-#: includes/class-wcpfs-admin.php:131
-msgid "Complete Format (with sale price):"
-msgstr "Formato Completo (com preço promocional):"
-
-#: includes/class-wcpfs-admin.php:147
-msgid "Important Rules:"
-msgstr "Regras Importantes:"
-
-#: includes/class-wcpfs-admin.php:149
-msgid "<strong>SKU:</strong> Must be exactly the same as registered in WooCommerce"
-msgstr "<strong>SKU:</strong> Deve ser exatamente igual ao registrado no WooCommerce"
-
-#: includes/class-wcpfs-admin.php:150
-msgid "<strong>Prices:</strong> Use dot (.) as decimal separator (e.g.: 29.90)"
-msgstr "<strong>Preços:</strong> Use ponto (.) como separador decimal (ex.: 29.90)"
-
-#: includes/class-wcpfs-admin.php:151
-msgid "<strong>File:</strong> Save as CSV (comma separated) or Excel file respecting column names in the first row"
-msgstr "<strong>Arquivo:</strong> Salve como CSV (separado por vírgula) ou arquivo Excel respeitando os nomes das colunas na primeira linha"
-
-#: includes/class-wcpfs-admin.php:152
-msgid "<strong>Encoding:</strong> UTF-8 to avoid accent problems"
-msgstr "<strong>Codificação:</strong> UTF-8 para evitar problemas com acentos"
-
-#: includes/class-wcpfs-admin.php:159
-msgid "How to use"
-msgstr "Como usar"
-
-#: includes/class-wcpfs-admin.php:164
-msgid "Choose the File"
-msgstr "Escolha o Arquivo"
-
-#: includes/class-wcpfs-admin.php:165
-msgid "Click on \"Choose file\" and select your prepared CSV or Excel file."
-msgstr "Clique em \"Escolher arquivo\" e selecione seu arquivo CSV ou Excel preparado."
-
-#: includes/class-wcpfs-admin.php:171
-msgid "Select Mode"
-msgstr "Selecione o Modo"
-
-#: includes/class-wcpfs-admin.php:172
-msgid "Choose whether you want to \"Update existing prices\" or \"Only add new prices\"."
-msgstr "Escolha se deseja \"Atualizar preços existentes\" ou \"Apenas adicionar novos preços\"."
-
-#: includes/class-wcpfs-admin.php:178
-msgid "Run the Import"
-msgstr "Executar a Importação"
-
-#: includes/class-wcpfs-admin.php:179
-msgid "Click on \"Import Now\" and wait for the process."
-msgstr "Clique em \"Importar Agora\" e aguarde o processo."
-
-#: includes/class-wcpfs-admin.php:187
-msgid "Troubleshooting common issues"
-msgstr "Resolvendo problemas comuns"
-
-#: includes/class-wcpfs-admin.php:190
-msgid "\"Product with SKU not found\""
-msgstr "\"Produto com SKU não encontrado\""
-
-#: includes/class-wcpfs-admin.php:191
-msgid "Cause:"
-msgstr "Causa:"
-
-#: includes/class-wcpfs-admin.php:191
-msgid "The SKU in the spreadsheet does not exist in WooCommerce"
-msgstr "O SKU na planilha não existe no WooCommerce"
-
-#: includes/class-wcpfs-admin.php:192
-msgid "Solution:"
-msgstr "Solução:"
-
-#: includes/class-wcpfs-admin.php:194
-msgid "Check if the SKU is correct (no extra spaces)"
-msgstr "Verifique se o SKU está correto (sem espaços extras)"
-
-#: includes/class-wcpfs-admin.php:195
-msgid "Confirm that the product exists in WooCommerce"
-msgstr "Confirme se o produto existe no WooCommerce"
-
-#: includes/class-wcpfs-admin.php:196
-msgid "Make sure the SKU is not empty"
-msgstr "Certifique-se de que o SKU não está vazio"
-
-#: includes/class-wcpfs-admin.php:201
-msgid "\"Invalid row: SKU or price not found\""
-msgstr "\"Linha inválida: SKU ou preço não encontrado\""
-
-#: includes/class-wcpfs-admin.php:202
-msgid "Spreadsheet row is incomplete"
-msgstr "A linha da planilha está incompleta"
-
-#: includes/class-wcpfs-admin.php:205
-msgid "Ensure all rows have SKU and price"
-msgstr "Certifique-se de que todas as linhas têm SKU e preço"
-
-#: includes/class-wcpfs-admin.php:206
-msgid "Remove empty rows from the spreadsheet"
-msgstr "Remova linhas vazias da planilha"
-
-#: includes/class-wcpfs-admin.php:207
-msgid "Confirm the headers are correct"
-msgstr "Confirme se os cabeçalhos estão corretos"
-
-#: includes/class-wcpfs-admin.php:214
-msgid "Important Tips"
-msgstr "Dicas Importantes"
-
-#: includes/class-wcpfs-admin.php:218
-msgid "Best Practices"
-msgstr "Melhores Práticas"
-
-#: includes/class-wcpfs-admin.php:220
-msgid "<strong>Backup:</strong> Always make a backup before importing"
-msgstr "<strong>Backup:</strong> Sempre faça um backup antes de importar"
-
-#: includes/class-wcpfs-admin.php:221
-msgid "<strong>Small test:</strong> Start with a few products to test"
-msgstr "<strong>Teste pequeno:</strong> Comece com alguns produtos para testar"
-
-#: includes/class-wcpfs-admin.php:222
-msgid "<strong>Check SKUs:</strong> Confirm if the SKUs are correct"
-msgstr "<strong>Verifique os SKUs:</strong> Confirme se os SKUs estão corretos"
-
-#: includes/class-wcpfs-admin.php:223
-msgid "<strong>Use UTF-8:</strong> To avoid accent problems"
-msgstr "<strong>Use UTF-8:</strong> Para evitar problemas com acentos"
-
-#: includes/class-wcpfs-admin.php:228
-msgid "Cautions"
-msgstr "Atenções"
-
-#: includes/class-wcpfs-admin.php:230
-msgid "<strong>Zero prices:</strong> Be careful not to put zero prices"
-msgstr "<strong>Preços zerados:</strong> Cuidado para não colocar preços zero"
-
-#: includes/class-wcpfs-admin.php:231
-msgid "<strong>Comma in prices:</strong> Use dot (29.90) not comma (29,90)"
-msgstr "<strong>Vírgula nos preços:</strong> Use ponto (29.90) e não vírgula (29,90)"
-
-#: includes/class-wcpfs-admin.php:232
-msgid "<strong>Duplicate SKUs:</strong> Each SKU must be unique"
-msgstr "<strong>SKUs duplicados:</strong> Cada SKU deve ser único"
-
-#: includes/class-wcpfs-admin.php:233
-msgid "<strong>Variable products:</strong> Use the unique SKU of the variation product"
-msgstr "<strong>Produtos variáveis:</strong> Use o SKU único da variação do produto"
-
-#: includes/class-wcpfs-admin.php:241
-msgid "Practical Example"
-msgstr "Exemplo Prático"
-
-#: includes/class-wcpfs-admin.php:243
-msgid "Scenario: 10% price increase on 500 products"
-msgstr "Cenário: aumento de 10% no preço de 500 produtos"
-
-#: includes/class-wcpfs-admin.php:245
-msgid "<strong>Export current products:</strong> Use WooCommerce > Products > Export"
-msgstr "<strong>Exportar produtos atuais:</strong> Use WooCommerce > Produtos > Exportar"
-
-#: includes/class-wcpfs-admin.php:246
-msgid "<strong>Calculate new prices:</strong> Open in Excel/Google Sheets and create formula to increase 10%"
-msgstr "<strong>Calcular novos preços:</strong> Abra no Excel/Google Sheets e crie a fórmula para aumentar 10%"
-
-#: includes/class-wcpfs-admin.php:247
-msgid "<strong>Import new prices:</strong> Save as CSV or Excel file with recommended columns and formats in \"<i>Preparing your sheet</i>\" and import using this plugin"
-msgstr "<strong>Importar novos preços:</strong> Salve como arquivo CSV ou Excel com as colunas e formatos recomendados em \"<i>Preparando sua planilha</i>\" e importe usando este plugin"
-
-#: includes/class-wcpfs-admin.php:254
-msgid "Need Help?"
-msgstr "Precisa de Ajuda?"
-
-#: includes/class-wcpfs-admin.php:255
-msgid "If you encounter problems:"
-msgstr "Se encontrar problemas:"
-
-#: includes/class-wcpfs-admin.php:257
-msgid "1. Check the logs in the results section above"
-msgstr "1. Verifique os logs na seção de resultados acima"
-
-#: includes/class-wcpfs-admin.php:258
-msgid "2. Test with a few products first"
-msgstr "2. Teste primeiro com alguns produtos"
-
-#: includes/class-wcpfs-admin.php:259
-msgid "3. Confirm the file format is correct"
-msgstr "3. Confirme se o formato do arquivo está correto"
-
-#: includes/class-wcpfs-admin.php:260
-msgid "4. Contact: <strong>hooma.com.br</strong>"
-msgstr "4. Contato: <strong>hooma.com.br</strong>"
-
-#: includes/class-wcpfs-admin.php:280
-#: includes/class-wcpfs-admin.php:300
-#: includes/class-wcpfs-admin.php:333
+#: /includes/class-wcpfs-admin.php:304
 msgid "You do not have permission to perform this action."
 msgstr "Você não tem permissão para realizar esta ação."
 
-#: includes/class-wcpfs-admin.php:295
-#: includes/class-wcpfs-admin.php:328
+#: /includes/class-wcpfs-admin.php:319
 msgid "Access denied."
 msgstr "Acesso negado."
 
-#: includes/class-wcpfs-importer.php:19
-msgid "File upload error."
-msgstr "Erro ao enviar o arquivo."
+#: /includes/class-wcpfs-admin.php:42
+msgid "Import Prices"
+msgstr "Importar Preços"
 
-#: includes/class-wcpfs-importer.php:26
+#: /includes/class-wcpfs-admin.php:48
+msgid "Spreadsheet File"
+msgstr "Arquivo de Planilha"
+
+#: /includes/class-wcpfs-admin.php:50
+msgid "Accepted formats: CSV (.csv), Excel (.xlsx, .xls) - Maximum: 10MB"
+msgstr "Formatos aceitos: CSV (.csv), Excel (.xlsx, .xls) - Máximo: 10MB"
+
+#: /includes/class-wcpfs-admin.php:53
+msgid "Update Mode"
+msgstr "Modo de Atualização"
+
+#: /includes/class-wcpfs-admin.php:55
+msgid "Update existing prices"
+msgstr "Atualizar preços existentes"
+
+#: /includes/class-wcpfs-admin.php:56
+msgid "Only add new prices"
+msgstr "Apenas adicionar novos preços"
+
+#: /includes/class-wcpfs-admin.php:60
+msgid "Import Now"
+msgstr "Importar Agora"
+
+#: /includes/class-wcpfs-admin.php:67
+msgid "Import Results"
+msgstr "Resultados da Importação"
+
+#: /includes/class-wcpfs-admin.php:79
+msgid "Complete Guide"
+msgstr "Guia Completo"
+
+#: /includes/class-wcpfs-admin.php:81
+msgid "Learn how to update your product prices in bulk."
+msgstr "Aprenda como atualizar os preços dos seus produtos em massa."
+
+#: /includes/class-wcpfs-admin.php:87
+msgid "What does the plugin do?"
+msgstr "O que o plugin faz?"
+
+#: /includes/class-wcpfs-admin.php:88
+msgid "This plugin allows you to update prices for hundreds or thousands of WooCommerce products at once, using CSV or Excel files. Instead of changing products one by one manually, you can do everything in just a few clicks!"
+msgstr "Este plugin permite atualizar preços de centenas ou milhares de produtos WooCommerce de uma só vez, usando arquivos CSV ou Excel. Em vez de alterar produtos um a um manualmente, você pode fazer tudo em apenas alguns cliques!"
+
+#: /includes/class-wcpfs-admin.php:90
+msgid "Update modes:"
+msgstr "Modos de atualização:"
+
+#: /includes/class-wcpfs-admin.php:92
+msgid "<strong>Update existing prices:</strong> will set the new value for all products listed in the file."
+msgstr "<strong>Atualizar preços existentes:</strong> definirá o novo valor para todos os produtos listados no arquivo."
+
+#: /includes/class-wcpfs-admin.php:93
+msgid "<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file."
+msgstr "<strong>Apenas adicionar novos preços:</strong> definirá o novo valor apenas para produtos sem preço definido que estão listados no arquivo."
+
+#: /includes/class-wcpfs-admin.php:99
+msgid "Preparing your spreadsheet"
+msgstr "Preparando sua planilha"
+
+#: /includes/class-wcpfs-admin.php:104
+msgid "Download Template | CSV"
+msgstr "Baixar Modelo | CSV"
+
+#: /includes/class-wcpfs-admin.php:108
+msgid "Download Template | Excel"
+msgstr "Baixar Modelo | Excel"
+
+#: /includes/class-wcpfs-admin.php:111
+msgid "Download a template file with the correct structure for import."
+msgstr "Baixe um arquivo modelo com a estrutura correta para importação."
+
+#: /includes/class-wcpfs-admin.php:115
+msgid "Required Format:"
+msgstr "Formato Requerido:"
+
+#: /includes/class-wcpfs-admin.php:131
+msgid "Complete Format (with sale price):"
+msgstr "Formato Completo (com preço promocional):"
+
+#: /includes/class-wcpfs-admin.php:140
+msgid "null"
+msgstr "sem valor"
+
+#: /includes/class-wcpfs-admin.php:147
+msgid "Supported Keywords:"
+msgstr "Palavras-chave Suportadas:"
+
+#: /includes/class-wcpfs-admin.php:148
+msgid "Column:"
+msgstr "Coluna:"
+
+#: /includes/class-wcpfs-admin.php:167
+msgid "The above keywords will remove the sale price value"
+msgstr "As palavras-chave acima irão remover o valor do preço promocional"
+
+#: /includes/class-wcpfs-admin.php:171
+msgid "Important Rules:"
+msgstr "Regras Importantes:"
+
+#: /includes/class-wcpfs-admin.php:173
+msgid "<strong>SKU:</strong> Must be exactly the same as registered in WooCommerce"
+msgstr "<strong>SKU:</strong> Deve ser exatamente igual ao registrado no WooCommerce"
+
+#: /includes/class-wcpfs-admin.php:174
+msgid "<strong>Prices:</strong> Use dot (.) as decimal separator (e.g.: 29.90)"
+msgstr "<strong>Preços:</strong> Use ponto (.) como separador decimal (ex.: 29.90)"
+
+#: /includes/class-wcpfs-admin.php:175
+msgid "<strong>File:</strong> Save as CSV (comma separated) or Excel file respecting column names in the first row"
+msgstr "<strong>Arquivo:</strong> Salve como CSV (separado por vírgula) ou arquivo Excel respeitando os nomes das colunas na primeira linha"
+
+#: /includes/class-wcpfs-admin.php:176
+msgid "<strong>Encoding:</strong> UTF-8 to avoid accent problems"
+msgstr "<strong>Codificação:</strong> UTF-8 para evitar problemas com acentos"
+
+#: /includes/class-wcpfs-admin.php:183
+msgid "How to use"
+msgstr "Como usar"
+
+#: /includes/class-wcpfs-admin.php:188
+msgid "Choose the File"
+msgstr "Escolher o Arquivo"
+
+#: /includes/class-wcpfs-admin.php:189
+msgid "Click on "Choose file" and select your prepared CSV or Excel file."
+msgstr "Clique em \"Escolher arquivo\" e selecione seu arquivo CSV ou Excel preparado."
+
+#: /includes/class-wcpfs-admin.php:195
+msgid "Select Mode"
+msgstr "Selecionar Modo"
+
+#: /includes/class-wcpfs-admin.php:196
+msgid "Choose whether you want to "Update existing prices" or "Only add new prices"."
+msgstr "Escolha se deseja \"Atualizar preços existentes\" ou \"Apenas adicionar novos preços\"."
+
+#: /includes/class-wcpfs-admin.php:202
+msgid "Run the Import"
+msgstr "Executar a Importação"
+
+#: /includes/class-wcpfs-admin.php:203
+msgid "Click on "Import Now" and wait for the process."
+msgstr "Clique em \"Importar Agora\" e aguarde o processo."
+
+#: /includes/class-wcpfs-admin.php:211
+msgid "Troubleshooting common issues"
+msgstr "Solução de problemas comuns"
+
+#: /includes/class-wcpfs-admin.php:214
+msgid ""Product with SKU not found""
+msgstr "Produto com SKU não encontrado"
+
+#: /includes/class-wcpfs-admin.php:215
+msgid "Cause:"
+msgstr "Causa:"
+
+#: /includes/class-wcpfs-admin.php:215
+msgid "The SKU in the spreadsheet does not exist in WooCommerce"
+msgstr "O SKU na planilha não existe no WooCommerce"
+
+#: /includes/class-wcpfs-admin.php:216
+msgid "Solution:"
+msgstr "Solução:"
+
+#: /includes/class-wcpfs-admin.php:218
+msgid "Check if the SKU is correct (no extra spaces)"
+msgstr "Verifique se o SKU está correto (sem espaços extras)"
+
+#: /includes/class-wcpfs-admin.php:219
+msgid "Confirm that the product exists in WooCommerce"
+msgstr "Confirme que o produto existe no WooCommerce"
+
+#: /includes/class-wcpfs-admin.php:220
+msgid "Make sure the SKU is not empty"
+msgstr "Certifique-se de que o SKU não está vazio"
+
+#: /includes/class-wcpfs-admin.php:225
+msgid ""Invalid row: SKU or price not found""
+msgstr "Linha inválida: SKU ou preço não encontrado"
+
+#: /includes/class-wcpfs-admin.php:226
+msgid "Spreadsheet row is incomplete"
+msgstr "A linha da planilha está incompleta"
+
+#: /includes/class-wcpfs-admin.php:229
+msgid "Ensure all rows have SKU and price"
+msgstr "Certifique-se de que todas as linhas têm SKU e preço"
+
+#: /includes/class-wcpfs-admin.php:230
+msgid "Remove empty rows from the spreadsheet"
+msgstr "Remova linhas vazias da planilha"
+
+#: /includes/class-wcpfs-admin.php:231
+msgid "Confirm the headers are correct"
+msgstr "Confirme se os cabeçalhos estão corretos"
+
+#: /includes/class-wcpfs-admin.php:238
+msgid "Important Tips"
+msgstr "Dicas Importantes"
+
+#: /includes/class-wcpfs-admin.php:242
+msgid "Best Practices"
+msgstr "Melhores Práticas"
+
+#: /includes/class-wcpfs-admin.php:244
+msgid "<strong>Backup:</strong> Always make a backup before importing"
+msgstr "<strong>Backup:</strong> Sempre faça um backup antes de importar"
+
+#: /includes/class-wcpfs-admin.php:245
+msgid "<strong>Small test:</strong> Start with a few products to test"
+msgstr "<strong>Teste pequeno:</strong> Comece com alguns produtos para testar"
+
+#: /includes/class-wcpfs-admin.php:246
+msgid "<strong>Check SKUs:</strong> Confirm if the SKUs are correct"
+msgstr "<strong>Verifique os SKUs:</strong> Confirme se os SKUs estão corretos"
+
+#: /includes/class-wcpfs-admin.php:247
+msgid "<strong>Use UTF-8:</strong> To avoid accent problems"
+msgstr "<strong>Use UTF-8:</strong> Para evitar problemas com acentos"
+
+#: /includes/class-wcpfs-admin.php:252
+msgid "Cautions"
+msgstr "Cuidados"
+
+#: /includes/class-wcpfs-admin.php:254
+msgid "<strong>Zero prices:</strong> Be careful not to put zero prices"
+msgstr "<strong>Preços zerados:</strong> Cuidado para não colocar preços zerados"
+
+#: /includes/class-wcpfs-admin.php:255
+msgid "<strong>Comma in prices:</strong> Use dot (29.90) not comma (29,90)"
+msgstr "<strong>Vírgula nos preços:</strong> Use ponto (29.90) e não vírgula (29,90)"
+
+#: /includes/class-wcpfs-admin.php:256
+msgid "<strong>Duplicate SKUs:</strong> Each SKU must be unique"
+msgstr "<strong>SKUs duplicados:</strong> Cada SKU deve ser único"
+
+#: /includes/class-wcpfs-admin.php:257
+msgid "<strong>Variable products:</strong> Use the unique SKU of the variation product"
+msgstr "<strong>Produtos variáveis:</strong> Use o SKU único da variação do produto"
+
+#: /includes/class-wcpfs-admin.php:265
+msgid "Practical Example"
+msgstr "Exemplo Prático"
+
+#: /includes/class-wcpfs-admin.php:267
+msgid "Scenario: 10% price increase on 500 products"
+msgstr "Cenário: aumento de 10% no preço de 500 produtos"
+
+#: /includes/class-wcpfs-admin.php:269
+msgid "<strong>Export current products:</strong> Use WooCommerce > Products > Export"
+msgstr "<strong>Exporte os produtos atuais:</strong> Vá em WooCommerce > Produtos > Exportar"
+
+#: /includes/class-wcpfs-admin.php:270
+msgid "<strong>Calculate new prices:</strong> Open in Excel/Google Sheets and create formula to increase 10%"
+msgstr "<strong>Calcule os novos preços:</strong> Abra no Excel/Google Sheets e crie uma fórmula para aumentar 10%"
+
+#: /includes/class-wcpfs-admin.php:271
+msgid "<strong>Import new prices:</strong> Save as CSV or Excel file with recommended columns and formats in "<i>Preparing your sheet</i>" and import using this plugin"
+msgstr "<strong>Importe os novos preços:</strong> Salve como arquivo CSV ou Excel com as colunas e formatos recomendados em \"<i>Preparando sua planilha</i>\" e importe usando este plugin"
+
+#: /includes/class-wcpfs-admin.php:278
+msgid "Need Help?"
+msgstr "Precisa de Ajuda?"
+
+#: /includes/class-wcpfs-admin.php:279
+msgid "If you encounter problems:"
+msgstr "Se você encontrar problemas:"
+
+#: /includes/class-wcpfs-admin.php:281
+msgid "1. Check the logs in the results section above"
+msgstr "1. Verifique os logs na seção de resultados acima"
+
+#: /includes/class-wcpfs-admin.php:282
+msgid "2. Test with a few products first"
+msgstr "2. Teste primeiro com alguns produtos"
+
+#: /includes/class-wcpfs-admin.php:283
+msgid "3. Confirm the file format is correct"
+msgstr "3. Confirme se o formato do arquivo está correto"
+
+#: /includes/class-wcpfs-admin.php:284
+msgid "4. Contact: <strong>hooma.com.br</strong>"
+msgstr "4. Contato: <strong>hooma.com.br</strong>"
+
+#: /includes/class-wcpfs-importer.php:65
+msgid "File upload error."
+msgstr "Erro ao enviar arquivo."
+
+#: /includes/class-wcpfs-importer.php:73
 msgid "File too large. Maximum allowed: 10MB. For larger files, use CSV."
 msgstr "Arquivo muito grande. Máximo permitido: 10MB. Para arquivos maiores, use CSV."
 
-#: includes/class-wcpfs-importer.php:38
+#: /includes/class-wcpfs-importer.php:88
 msgid "Unsupported file format."
 msgstr "Formato de arquivo não suportado."
 
-#: includes/class-wcpfs-importer.php:88
+#: /includes/class-wcpfs-importer.php:152
 msgid "Excel functionality temporarily unavailable. Use CSV as an alternative."
 msgstr "Funcionalidade Excel temporariamente indisponível. Use CSV como alternativa."
 
-#: includes/class-wcpfs-importer.php:98
+#: /includes/class-wcpfs-importer.php:166
 msgid "Excel file is empty."
 msgstr "O arquivo Excel está vazio."
 
-#: includes/class-wcpfs-importer.php:126
+#: /includes/class-wcpfs-importer.php:188
 msgid "Excel error: %s. Try converting to CSV."
 msgstr "Erro no Excel: %s. Tente converter para CSV."
 
-#: includes/class-wcpfs-importer.php:154
+#: /includes/class-wcpfs-importer.php:215
 msgid "Line %s: SKU or price not found. Available columns: [%s]"
 msgstr "Linha %s: SKU ou preço não encontrado. Colunas disponíveis: [%s]"
 
-#: includes/class-wcpfs-importer.php:165
-msgid "Line %s: SKU is empty. Price provided: \"%s\""
-msgstr "Linha %s: SKU está vazio. Preço fornecido: \"%s\""
+#: /includes/class-wcpfs-importer.php:228
+msgid "Line %s: SKU is empty. Price: "%s""
+msgstr "Linha %s: SKU está vazio. Preço: \"%s\""
 
-#: includes/class-wcpfs-importer.php:173
-msgid "Line %s: Price is empty. SKU: \"%s\""
+#: /includes/class-wcpfs-importer.php:238
+msgid "Line %s: Price is empty. SKU: "%s""
 msgstr "Linha %s: Preço está vazio. SKU: \"%s\""
 
-#: includes/class-wcpfs-importer.php:182
-msgid "Line %s: Invalid price \"%s\". SKU: \"%s\" - Use only numbers with a dot or comma as the decimal separator"
+#: /includes/class-wcpfs-importer.php:249
+msgid "Line %s: Invalid price "%s". SKU: "%s" - Use only numbers with dot or comma as decimal separator"
 msgstr "Linha %s: Preço inválido \"%s\". SKU: \"%s\" - Use apenas números com ponto ou vírgula como separador decimal"
 
-#: includes/class-wcpfs-importer.php:192
-msgid "Line %s: Product not found. SKU: \"%s\" – Check if the SKU exists in WooCommerce"
-msgstr "Linha %s: Produto não encontrado. SKU: \"%s\" – Verifique se o SKU existe no WooCommerce"
+#: /includes/class-wcpfs-importer.php:261
+msgid "Line %s: Product not found. SKU: "%s" - Check if SKU exists in WooCommerce"
+msgstr "Linha %s: Produto não encontrado. SKU: \"%s\" - Verifique se o SKU existe no WooCommerce"
 
-#: includes/class-wcpfs-importer.php:201
-msgid "Line %s: Error loading product. SKU: \"%s\" – Product may be corrupted"
-msgstr "Linha %s: Erro ao carregar o produto. SKU: \"%s\" – Produto pode estar corrompido"
+#: /includes/class-wcpfs-importer.php:272
+msgid "Line %s: Error loading product. SKU: "%s" - Product may be corrupted"
+msgstr "Linha %s: Erro ao carregar o produto. SKU: \"%s\" - O produto pode estar corrompido"
 
-#: includes/class-wcpfs-importer.php:220
-msgid "Line %s: Sale price (%s) must be lower than the regular price (%s). SKU: \"%s\""
-msgstr "Linha %s: O preço promocional (%s) deve ser menor que o preço normal (%s). SKU: \"%s\""
+#: /includes/class-wcpfs-importer.php:306
+msgid "Line %s: Sale price (%s) must be less than regular price (%s). SKU: "%s""
+msgstr "Linha %s: Preço promocional (%s) deve ser menor que o preço normal (%s). SKU: \"%s\""
 
-#: includes/class-wcpfs-importer.php:230
-msgid "Line %s: Invalid sale price \"%s\". SKU: \"%s\" – Use only numbers"
-msgstr "Linha %s: Preço promocional inválido \"%s\". SKU: \"%s\" – Use apenas números"
+#: /includes/class-wcpfs-importer.php:328
+msgid "Line %s: Error saving product. SKU: "%s" - Error: %s"
+msgstr "Linha %s: Erro ao salvar produto. SKU: \"%s\" - Erro: %s"
 
-#: includes/class-wcpfs-importer.php:240
-msgid "Line %s: Error saving product. SKU: \"%s\" – Error: %s"
-msgstr "Linha %s: Erro ao salvar o produto. SKU: \"%s\" – Erro: %s"
-
-#: includes/class-wcpfs-importer.php:249
-msgid "%d products successfully updated."
+#: /includes/class-wcpfs-importer.php:339
+msgid "%d products updated successfully."
 msgstr "%d produtos atualizados com sucesso."
 
-#: price-from-sheet-woocommerce.php:72
-msgid "Price From Sheet: PHPSpreadsheet could not be loaded. Check if the files are present in /vendor/phpoffice/."
-msgstr "Price From Sheet: PHPSpreadsheet não pôde ser carregado. Verifique se os arquivos estão presentes em /vendor/phpoffice/."
-
-#: price-from-sheet-woocommerce.php:87
-msgid "WooCommerce Price From Sheet requires WooCommerce to work."
-msgstr "O WooCommerce Price From Sheet requer o WooCommerce para funcionar."
-
-#: includes/class-wcpfs-main.php:90
+#: /includes/class-wcpfs-main.php:90
 msgid "Errors found:"
 msgstr "Erros encontrados:"
 
-#: includes/class-wcpfs-main.php:91
+#: /includes/class-wcpfs-main.php:91
 msgid "Error communicating with the server."
-msgstr "Erro na comunicação com o servidor."
+msgstr "Erro ao comunicar com o servidor."
+
+#: /includes/class-wcpfs-main.php:92
+msgid "Importing prices..."
+msgstr "Importando preços..."

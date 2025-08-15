@@ -88,7 +88,8 @@ class WCPFS_Main {
             'nonce' => wp_create_nonce('wcpfs_nonce'),
             'i18n' => array(
                 'errors_found' => __('Errors found:', 'price-from-sheet-woocommerce'),
-                'server_error' => __('Error communicating with the server.', 'price-from-sheet-woocommerce')
+                'server_error' => __('Error communicating with the server.', 'price-from-sheet-woocommerce'),
+                'importing_prices' => __('Importing prices...', 'price-from-sheet-woocommerce')
             )
         ));
     }
