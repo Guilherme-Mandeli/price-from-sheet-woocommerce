@@ -16,15 +16,15 @@ class WCPFS_Importer {
         if (!$file || $file['error'] !== UPLOAD_ERR_OK) {
             return array(
                 'success' => false,
-                'message' => __('Erro no upload do arquivo.', 'price-from-sheet-woocommerce')
+                'message' => __('File upload error.', 'price-from-sheet-woocommerce')
             );
         }
         
-        // Verifica tamanho do arquivo (Excel pode ser maior que CSV)
+        // Verify file size (Excel can be larger than CSV)
         if ($file['size'] > 10 * 1024 * 1024) { // 10MB
             return array(
                 'success' => false,
-                'message' => __('Arquivo muito grande. Máximo permitido: 10MB. Para arquivos maiores, use CSV.', 'price-from-sheet-woocommerce')
+                'message' => __('File too large. Maximum allowed: 10MB. For larger files, use CSV.', 'price-from-sheet-woocommerce')
             );
         }
 
@@ -39,7 +39,7 @@ class WCPFS_Importer {
             default:
                 return array(
                     'success' => false,
-                    'message' => __('Formato de arquivo não suportado.', 'price-from-sheet-woocommerce')
+                    'message' => __('Unsupported file format.', 'price-from-sheet-woocommerce')
                 );
         }
     }
@@ -91,7 +91,7 @@ class WCPFS_Importer {
             if (!class_exists('\\PhpOffice\\PhpSpreadsheet\\IOFactory')) {
                 return array(
                     'success' => false,
-                    'message' => __('Funcionalidade Excel temporariamente indisponível. Use CSV como alternativa.', 'price-from-sheet-woocommerce')
+                    'message' => __('Excel functionality temporarily unavailable. Use CSV as an alternative.', 'price-from-sheet-woocommerce')
                 );
             }
             
@@ -105,7 +105,7 @@ class WCPFS_Importer {
             if (empty($rawData)) {
                 return array(
                     'success' => false,
-                    'message' => __('Arquivo Excel está vazio.', 'price-from-sheet-woocommerce')
+                    'message' => __('Excel file is empty.', 'price-from-sheet-woocommerce')
                 );
             }
             
@@ -127,7 +127,7 @@ class WCPFS_Importer {
             return array(
                 'success' => false,
                 'message' => sprintf(
-                    __('Erro Excel: %s. Tente converter para CSV.', 'price-from-sheet-woocommerce'),
+                    __('Excel error: %s. Try converting to CSV.', 'price-from-sheet-woocommerce'),
                     $e->getMessage()
                 )
             );

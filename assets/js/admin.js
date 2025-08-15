@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
                     var html = '<div class="wcpfs-success">' + response.message + '</div>';
                     
                     if (response.errors && response.errors.length > 0) {
-                        html += '<h4>Erros encontrados:</h4><ul>';
+                        html += '<h4>' + wcpfs_ajax.i18n.errors_found + '</h4><ul>';
                         response.errors.forEach(function(error) {
                             html += '<li class="wcpfs-error">' + error + '</li>';
                         });
@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
                 }
             },
             error: function() {
-                $('#wcpfs-results-content').html('<div class="wcpfs-error">Erro na comunicação com o servidor.</div>');
+                $('#wcpfs-results-content').html('<div class="wcpfs-error">' + wcpfs_ajax.i18n.server_error + '</div>');
             }
         });
     });

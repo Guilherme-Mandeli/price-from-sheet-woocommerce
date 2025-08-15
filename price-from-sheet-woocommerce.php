@@ -36,6 +36,15 @@ define('WCPFS_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WCPFS_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('WCPFS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 
+add_action('plugins_loaded', 'wcpfs_load_textdomain');
+function wcpfs_load_textdomain() {
+    load_plugin_textdomain(
+        'price-from-sheet-woocommerce',
+        false,
+        dirname(plugin_basename(__FILE__)) . '/languages/'
+    );
+}
+
 // Função para carregar PHPSpreadsheet
 function wcpfs_load_phpspreadsheet() {
     $autoload_file = __DIR__ . '/vendor/autoload.php';

@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe de administração do plugin
+ * Plugin admin class
  */
 
 if (!defined('ABSPATH')) {
@@ -17,7 +17,7 @@ class WCPFS_Admin {
     }
     
     /**
-     * Adiciona menu no admin
+     * Adds menu in admin
      */
     public function add_admin_menu() {
         add_submenu_page(
@@ -31,88 +31,88 @@ class WCPFS_Admin {
     }
     
     /**
-     * Página de administração
+     * Admin page
      */
     public function admin_page() {
         ?>
         <div class="wrap">            
-            <!-- Seção de Importação Fixa -->
+            <!-- Import Section - Fixed -->
             <div class="wcpfs-import-section">
                 <div class="wcpfs-import-card">
-                    <h2><?php _e('Importar Preços', 'price-from-sheet-woocommerce'); ?></h2>
+                    <h2><?php _e('Import Prices', 'price-from-sheet-woocommerce'); ?></h2>
                     <form id="wcpfs-import-form" method="post" enctype="multipart/form-data">
                         <?php wp_nonce_field('wcpfs_import', 'wcpfs_nonce'); ?>
                         
                         <div class="wcpfs-form-row">
                             <div class="wcpfs-form-col">
-                                <label for="wcpfs_file"><?php _e('Arquivo da Planilha', 'price-from-sheet-woocommerce'); ?></label>
+                                <label for="wcpfs_file"><?php _e('Spreadsheet File', 'price-from-sheet-woocommerce'); ?></label>
                                 <input type="file" id="wcpfs_file" name="wcpfs_file" accept=".csv,.xlsx,.xls" required>
-                                <small><?php _e('Formatos aceitos: CSV (.csv), Excel (.xlsx, .xls) - Máximo: 10MB', 'price-from-sheet-woocommerce'); ?></small>
+                                <small><?php _e('Accepted formats: CSV (.csv), Excel (.xlsx, .xls) - Maximum: 10MB', 'price-from-sheet-woocommerce'); ?></small>
                             </div>
                             <div class="wcpfs-form-col">
-                                <label for="wcpfs_update_mode"><?php _e('Modo de Atualização', 'price-from-sheet-woocommerce'); ?></label>
+                                <label for="wcpfs_update_mode"><?php _e('Update Mode', 'price-from-sheet-woocommerce'); ?></label>
                                 <select id="wcpfs_update_mode" name="wcpfs_update_mode">
-                                    <option value="update"><?php _e('Atualizar preços existentes', 'price-from-sheet-woocommerce'); ?></option>
-                                    <option value="add"><?php _e('Apenas adicionar novos preços', 'price-from-sheet-woocommerce'); ?></option>
+                                    <option value="update"><?php _e('Update existing prices', 'price-from-sheet-woocommerce'); ?></option>
+                                    <option value="add"><?php _e('Only add new prices', 'price-from-sheet-woocommerce'); ?></option>
                                 </select>
                             </div>
                             <div class="wcpfs-form-col wcpfs-submit-col">
-                                <input type="submit" class="button-primary wcpfs-import-btn" value="<?php _e('Importar Agora', 'price-from-sheet-woocommerce'); ?>" disabled="true">
+                                <input type="submit" class="button-primary wcpfs-import-btn" value="<?php _e('Import Now', 'price-from-sheet-woocommerce'); ?>" disabled="true">
                             </div>
                         </div>
                     </form>
                     
                     <div id="wcpfs-import-results" style="display: none;">
                         <button type="button" class="wcpfs-close-btn" aria-label="Close">&times;</button>
-                        <h3><?php _e('Resultados da Importação', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Import Results', 'price-from-sheet-woocommerce'); ?></h3>
                         <div id="wcpfs-results-content"></div>
                     </div>
                 </div>
             </div>
             
-            <!-- Guia do Usuário -->
+            <!-- User Guide -->
             <div class="wcpfs-guide-container">
                 <div class="wcpfs-guide-header">
                     <div class="wcpfs-guide-header_content-wrapper">
                         <h1 style="display: inline-block;"><?php echo esc_html(get_admin_page_title()); ?></h1>
                         <span style="display: inline-block; position: relative; top: -2px; margin-inline: 5px 3px;">|</span>
-                        <h2 style="display: inline-block;"><?php _e('Guia Completo', 'price-from-sheet-woocommerce'); ?></h2>
+                        <h2 style="display: inline-block;"><?php _e('Complete Guide', 'price-from-sheet-woocommerce'); ?></h2>
                     </div>
-                    <p style="margin-top: 4px;"><?php _e('Aprenda como atualizar os preços dos seus produtos em massa.', 'price-from-sheet-woocommerce'); ?></p>
+                    <p style="margin-top: 4px;"><?php _e('Learn how to update your product prices in bulk.', 'price-from-sheet-woocommerce'); ?></p>
                 </div>
                 
                 <div class="wcpfs-guide-content">
                     <!-- O que o Plugin Faz -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('O que o plugin faz?', 'price-from-sheet-woocommerce'); ?></h3>
-                        <p><?php _e('Este plugin permite atualizar preços de centenas ou milhares de produtos WooCommerce de uma só vez, usando arquivos CSV ou Excel. Ao invés de alterar produto por produto manualmente, você pode fazer tudo em poucos cliques!', 'price-from-sheet-woocommerce'); ?></p>
+                        <h3><?php _e('What does the plugin do?', 'price-from-sheet-woocommerce'); ?></h3>
+                        <p><?php _e('This plugin allows you to update prices for hundreds or thousands of WooCommerce products at once, using CSV or Excel files. Instead of changing products one by one manually, you can do everything in just a few clicks!', 'price-from-sheet-woocommerce'); ?></p>
                         
-                        <h4><?php _e('Modos de atualizações:', 'price-from-sheet-woocommerce'); ?></h4>
+                        <h4><?php _e('Update modes:', 'price-from-sheet-woocommerce'); ?></h4>
                         <ul>
-                            <li><?php _e('<strong>Atualizar preços existentes:</strong> será definido o novo valor de todos os produtos listados no arquivo', 'price-from-sheet-woocommerce'); ?></li>
-                            <li><?php _e('<strong>Apenas adicionar novos preços:</strong> será definido o novo valor somente para os produtos sem preço definido que estejam listados no arquivo', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('<strong>Update existing prices:</strong> will set the new value for all products listed in the file', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('<strong>Only add new prices:</strong> will set the new value only for products without a defined price that are listed in the file', 'price-from-sheet-woocommerce'); ?></li>
                         </ul>
                     </div>
                     
                     <!-- Preparando a Planilha -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Preparando sua planilha', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Preparing your spreadsheet', 'price-from-sheet-woocommerce'); ?></h3>
                         <!-- Botão para baixar modelo CSV -->
                         <div class="wcpfs-template-download" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
                             <a href="<?php echo admin_url('admin-ajax.php?action=wcpfs_download_template&nonce=' . wp_create_nonce('wcpfs_template_nonce')); ?>" class="button button-secondary">
                                 <span class="dashicons dashicons-download" style="margin-right: 2px; padding-top: 5px"></span>
-                                <?php _e('Baixar Modelo | CSV', 'price-from-sheet-woocommerce'); ?>
+                                <?php _e('Download Template | CSV', 'price-from-sheet-woocommerce'); ?>
                             </a>
                             <a href="<?php echo admin_url('admin-ajax.php?action=wcpfs_download_template_excel&nonce=' . wp_create_nonce('wcpfs_template_nonce')); ?>" class="button button-secondary">
                                 <span class="dashicons dashicons-download" style="margin-right: 2px; padding-top: 5px"></span>
-                                <?php _e('Baixar Modelo | Excel', 'price-from-sheet-woocommerce'); ?>
+                                <?php _e('Download Template | Excel', 'price-from-sheet-woocommerce'); ?>
                             </a>
                             <small style="display: block; margin-top: 5px; color: #666;">
-                                <?php _e('Baixe um arquivo modelo com a estrutura correta para importação.', 'price-from-sheet-woocommerce'); ?>
+                                <?php _e('Download a template file with the correct structure for import.', 'price-from-sheet-woocommerce'); ?>
                             </small>
                         </div>
                         <div class="wcpfs-format-example">
-                            <h4><?php _e('Formato Obrigatório:', 'price-from-sheet-woocommerce'); ?></h4>
+                            <h4><?php _e('Required Format:', 'price-from-sheet-woocommerce'); ?></h4>
                             <div class="wcpfs-table-example">
                                 <table>
                                     <thead>
@@ -128,7 +128,7 @@ class WCPFS_Admin {
                         </div>
                         
                         <div class="wcpfs-format-example">
-                            <h4><?php _e('Formato Completo (com preço promocional):', 'price-from-sheet-woocommerce'); ?></h4>
+                            <h4><?php _e('Complete Format (with sale price):', 'price-from-sheet-woocommerce'); ?></h4>
                             <div class="wcpfs-table-example">
                                 <table>
                                     <thead>
@@ -144,39 +144,39 @@ class WCPFS_Admin {
                         </div>
                         
                         <div class="wcpfs-rules">
-                            <h4 style="margin-top: 4px;"><?php _e('Regras Importantes:', 'price-from-sheet-woocommerce'); ?></h4>
+                            <h4 style="margin-top: 4px;"><?php _e('Important Rules:', 'price-from-sheet-woocommerce'); ?></h4>
                             <ul>
-                                <li><?php _e('<strong>SKU:</strong> Deve ser exatamente igual ao cadastrado no WooCommerce', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('<strong>Preços:</strong> Use ponto (.) como separador decimal (ex: 29.90)', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('<strong>Arquivo:</strong> Salve como CSV (separado por vírgulas) ou como arquivo Excel respeitando o nome das colunas na primeira linha', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('<strong>Codificação:</strong> UTF-8 para evitar problemas com acentos', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>SKU:</strong> Must be exactly the same as registered in WooCommerce', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>Prices:</strong> Use dot (.) as decimal separator (e.g.: 29.90)', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>File:</strong> Save as CSV (comma separated) or Excel file respecting column names in the first row', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>Encoding:</strong> UTF-8 to avoid accent problems', 'price-from-sheet-woocommerce'); ?></li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Como Usar -->
+                    <!-- How to use -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Como usar', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('How to use', 'price-from-sheet-woocommerce'); ?></h3>
                         <div class="wcpfs-steps">
                             <div class="wcpfs-step">
                                 <div class="wcpfs-step-number">1</div>
                                 <div class="wcpfs-step-content">
-                                    <h4><?php _e('Escolha o Arquivo', 'price-from-sheet-woocommerce'); ?></h4>
-                                    <p><?php _e('Clique em "Escolher arquivo" e selecione seu arquivo CSV ou Excel preparado.', 'price-from-sheet-woocommerce'); ?></p>
+                                    <h4><?php _e('Choose the File', 'price-from-sheet-woocommerce'); ?></h4>
+                                    <p><?php _e('Click on "Choose file" and select your prepared CSV or Excel file.', 'price-from-sheet-woocommerce'); ?></p>
                                 </div>
                             </div>
                             <div class="wcpfs-step">
                                 <div class="wcpfs-step-number">2</div>
                                 <div class="wcpfs-step-content">
-                                    <h4><?php _e('Selecione o Modo', 'price-from-sheet-woocommerce'); ?></h4>
-                                    <p><?php _e('Escolha se quer "Atualizar preços existentes" ou "Apenas adicionar novos preços".', 'price-from-sheet-woocommerce'); ?></p>
+                                    <h4><?php _e('Select Mode', 'price-from-sheet-woocommerce'); ?></h4>
+                                    <p><?php _e('Choose whether you want to "Update existing prices" or "Only add new prices".', 'price-from-sheet-woocommerce'); ?></p>
                                 </div>
                             </div>
                             <div class="wcpfs-step">
                                 <div class="wcpfs-step-number">3</div>
                                 <div class="wcpfs-step-content">
-                                    <h4><?php _e('Execute a Importação', 'price-from-sheet-woocommerce'); ?></h4>
-                                    <p><?php _e('Clique em "Importar Agora" e aguarde o processamento.', 'price-from-sheet-woocommerce'); ?></p>
+                                    <h4><?php _e('Run the Import', 'price-from-sheet-woocommerce'); ?></h4>
+                                    <p><?php _e('Click on "Import Now" and wait for the process.', 'price-from-sheet-woocommerce'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -184,80 +184,80 @@ class WCPFS_Admin {
                     
                     <!-- Solucionando Problemas -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Solucionando problemas comuns', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Troubleshooting common issues', 'price-from-sheet-woocommerce'); ?></h3>
                         
                         <div class="wcpfs-problem">
-                            <h4><?php _e('"Produto com SKU não encontrado"', 'price-from-sheet-woocommerce'); ?></h4>
-                            <p><strong><?php _e('Causa:', 'price-from-sheet-woocommerce'); ?></strong> <?php _e('O SKU na planilha não existe no WooCommerce', 'price-from-sheet-woocommerce'); ?></p>
-                            <p><strong><?php _e('Solução:', 'price-from-sheet-woocommerce'); ?></strong></p>
+                            <h4><?php _e('"Product with SKU not found"', 'price-from-sheet-woocommerce'); ?></h4>
+                            <p><strong><?php _e('Cause:', 'price-from-sheet-woocommerce'); ?></strong> <?php _e('The SKU in the spreadsheet does not exist in WooCommerce', 'price-from-sheet-woocommerce'); ?></p>
+                            <p><strong><?php _e('Solution:', 'price-from-sheet-woocommerce'); ?></strong></p>
                             <ul>
-                                <li><?php _e('Verifique se o SKU está correto (sem espaços extras)', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('Confirme se o produto existe no WooCommerce', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('Certifique-se de que o SKU não está vazio', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('Check if the SKU is correct (no extra spaces)', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('Confirm that the product exists in WooCommerce', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('Make sure the SKU is not empty', 'price-from-sheet-woocommerce'); ?></li>
                             </ul>
                         </div>
                         
                         <div class="wcpfs-problem">
-                            <h4><?php _e('"Linha inválida: SKU ou preço não encontrado"', 'price-from-sheet-woocommerce'); ?></h4>
-                            <p><strong><?php _e('Causa:', 'price-from-sheet-woocommerce'); ?></strong> <?php _e('Linha da planilha está incompleta', 'price-from-sheet-woocommerce'); ?></p>
-                            <p><strong><?php _e('Solução:', 'price-from-sheet-woocommerce'); ?></strong></p>
+                            <h4><?php _e('"Invalid row: SKU or price not found"', 'price-from-sheet-woocommerce'); ?></h4>
+                            <p><strong><?php _e('Cause:', 'price-from-sheet-woocommerce'); ?></strong> <?php _e('Spreadsheet row is incomplete', 'price-from-sheet-woocommerce'); ?></p>
+                            <p><strong><?php _e('Solution:', 'price-from-sheet-woocommerce'); ?></strong></p>
                             <ul>
-                                <li><?php _e('Verifique se todas as linhas têm SKU e preço', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('Remova linhas vazias da planilha', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('Confirme se os cabeçalhos estão corretos', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('Ensure all rows have SKU and price', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('Remove empty rows from the spreadsheet', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('Confirm the headers are correct', 'price-from-sheet-woocommerce'); ?></li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Dicas Importantes -->
+                    <!-- Important Tips -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Dicas importantes', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Important Tips', 'price-from-sheet-woocommerce'); ?></h3>
                         
                         <div class="wcpfs-tips">
                             <div class="wcpfs-tip wcpfs-tip-success">
-                                <h4><?php _e('Boas Práticas', 'price-from-sheet-woocommerce'); ?></h4>
+                                <h4><?php _e('Best Practices', 'price-from-sheet-woocommerce'); ?></h4>
                                 <ul>
-                                    <li><?php _e('<strong>Faça backup:</strong> Sempre faça backup antes de importar', 'price-from-sheet-woocommerce'); ?></li>
-                                    <li><?php _e('<strong>Teste pequeno:</strong> Comece com poucos produtos para testar', 'price-from-sheet-woocommerce'); ?></li>
-                                    <li><?php _e('<strong>Verifique SKUs:</strong> Confirme se os SKUs estão corretos', 'price-from-sheet-woocommerce'); ?></li>
-                                    <li><?php _e('<strong>Use UTF-8:</strong> Para evitar problemas com acentos', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Backup:</strong> Always make a backup before importing', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Small test:</strong> Start with a few products to test', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Check SKUs:</strong> Confirm if the SKUs are correct', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Use UTF-8:</strong> To avoid accent problems', 'price-from-sheet-woocommerce'); ?></li>
                                 </ul>
                             </div>
                             
                             <div class="wcpfs-tip wcpfs-tip-warning">
-                                <h4><?php _e('Cuidados', 'price-from-sheet-woocommerce'); ?></h4>
+                                <h4><?php _e('Cautions', 'price-from-sheet-woocommerce'); ?></h4>
                                 <ul>
-                                    <li><?php _e('<strong>Preços zerados:</strong> Cuidado para não colocar preços 0.00', 'price-from-sheet-woocommerce'); ?></li>
-                                    <li><?php _e('<strong>Vírgulas nos preços:</strong> Use ponto (29.90) não vírgula (29,90)', 'price-from-sheet-woocommerce'); ?></li>
-                                    <li><?php _e('<strong>SKUs duplicados:</strong> Cada SKU deve ser único', 'price-from-sheet-woocommerce'); ?></li>
-                                    <li><?php _e('<strong>Produtos variáveis:</strong> Use o SKU único da variação do produto', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Zero prices:</strong> Be careful not to put zero prices', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Comma in prices:</strong> Use dot (29.90) not comma (29,90)', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Duplicate SKUs:</strong> Each SKU must be unique', 'price-from-sheet-woocommerce'); ?></li>
+                                    <li><?php _e('<strong>Variable products:</strong> Use the unique SKU of the variation product', 'price-from-sheet-woocommerce'); ?></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Exemplo Prático -->
+                    <!-- Practical Example -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Exemplo prático', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Practical Example', 'price-from-sheet-woocommerce'); ?></h3>
                         <div class="wcpfs-example">
-                            <h4><?php _e('Cenário: Reajuste de 10% em 500 produtos', 'price-from-sheet-woocommerce'); ?></h4>
+                            <h4><?php _e('Scenario: 10% price increase on 500 products', 'price-from-sheet-woocommerce'); ?></h4>
                             <ol>
-                                <li><?php _e('<strong>Exporte os produtos atuais:</strong> Use WooCommerce > Produtos > Exportar', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('<strong>Calcule os novos preços:</strong> Abra no Excel/Google Sheets e crie fórmula para aumentar 10%', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('<strong>Importe os novos preços:</strong> Salve como CSV ou arquivo Excel com as colunas e formatos recomendados em "<i>Preparando sua planilha" e importe usando este plugin<i>', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>Export current products:</strong> Use WooCommerce > Products > Export', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>Calculate new prices:</strong> Open in Excel/Google Sheets and create formula to increase 10%', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>Import new prices:</strong> Save as CSV or Excel file with recommended columns and formats in "<i>Preparing your sheet</i>" and import using this plugin', 'price-from-sheet-woocommerce'); ?></li>
                             </ol>
                         </div>
                     </div>
                     
-                    <!-- Suporte -->
+                    <!-- Support -->
                     <div class="wcpfs-guide-section wcpfs-support-section">
-                        <h3><?php _e('Precisa de ajuda?', 'price-from-sheet-woocommerce'); ?></h3>
-                        <p><?php _e('Se encontrar problemas:', 'price-from-sheet-woocommerce'); ?></p>
+                        <h3><?php _e('Need Help?', 'price-from-sheet-woocommerce'); ?></h3>
+                        <p><?php _e('If you encounter problems:', 'price-from-sheet-woocommerce'); ?></p>
                         <ul>
-                            <li><?php _e('1. Verifique os logs na seção de resultados acima', 'price-from-sheet-woocommerce'); ?></li>
-                            <li><?php _e('2. Teste com poucos produtos primeiro', 'price-from-sheet-woocommerce'); ?></li>
-                            <li><?php _e('3. Confirme se o formato do arquivo está correto', 'price-from-sheet-woocommerce'); ?></li>
-                            <li><?php _e('4. Entre em contato: <strong>hooma.com.br</strong>', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('1. Check the logs in the results section above', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('2. Test with a few products first', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('3. Confirm the file format is correct', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('4. Contact: <strong>hooma.com.br</strong>', 'price-from-sheet-woocommerce'); ?></li>
                         </ul>
                         <hr style=" margin-bottom: 19px; margin-top: 20px; opacity: .44; border-bottom-width: 0; ">
                         <a href="https://hooma.com.br/" target="_blank" style="box-shadow: none !important; outline: none !important; text-decoration: none !important;">
@@ -271,13 +271,13 @@ class WCPFS_Admin {
     }
     
     /**
-     * Manipula requisições AJAX de importação
+     * Handles AJAX import requests
      */
     public function handle_import_ajax() {
         check_ajax_referer('wcpfs_nonce', 'nonce');
         
         if (!current_user_can('manage_woocommerce')) {
-            wp_die(__('Você não tem permissão para realizar esta ação.', 'price-from-sheet-woocommerce'));
+            wp_die(__('You do not have permission to perform this action.', 'price-from-sheet-woocommerce'));
         }
         
         $importer = new WCPFS_Importer();
@@ -287,101 +287,98 @@ class WCPFS_Admin {
     }
 
     /**
-     * Manipula o download do template CSV
+     * Handles CSV template download
      */
     public function handle_download_template() {
-        // Verifica nonce
+        // Verify nonce
         if (!wp_verify_nonce($_GET['nonce'], 'wcpfs_template_nonce')) {
-            wp_die(__('Acesso negado.', 'price-from-sheet-woocommerce'));
+            wp_die(__('Access denied.', 'price-from-sheet-woocommerce'));
         }
         
-        // Verifica permissões
+        // Verify permissions
         if (!current_user_can('manage_woocommerce')) {
-            wp_die(__('Você não tem permissão para realizar esta ação.', 'price-from-sheet-woocommerce'));
+            wp_die(__('You do not have permission to perform this action.', 'price-from-sheet-woocommerce'));
         }
         
-        // Define headers para download
         header('Content-Type: text/csv; charset=utf-8');
-        header('Content-Disposition: attachment; filename="modelo-importacao-precos.csv"');
+        header('Content-Disposition: attachment; filename="price-import-template.csv"');
         header('Pragma: no-cache');
         header('Expires: 0');
         
-        // Abre output
         $output = fopen('php://output', 'w');
         
-        // Adiciona BOM para UTF-8
+        // Add BOM for UTF-8
         fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
         
-        // Cabeçalhos do CSV
+        // CSV headers
         fputcsv($output, array('sku', 'price', 'sale_price'), ',');
         
-        // Exemplos de dados
+        // Sample data
         fputcsv($output, array('EXEMPLO-001', '29.90', '24.90'), ',');
         fputcsv($output, array('EXEMPLO-002', '15.50', ''), ',');
         fputcsv($output, array('EXEMPLO-003', '89.99', '79.99'), ',');
         
-        // Fecha output
         fclose($output);
         exit;
     }
 
     public function handle_download_template_excel() {
-        // Verifica nonce
+        // Verify nonce
         if (!wp_verify_nonce($_GET['nonce'], 'wcpfs_template_nonce')) {
-            wp_die(__('Acesso negado.', 'price-from-sheet-woocommerce'));
+            wp_die(__('Access denied.', 'price-from-sheet-woocommerce'));
         }
         
-        // Verifica permissões
+        // Verify permissions
         if (!current_user_can('manage_woocommerce')) {
-            wp_die(__('Você não tem permissão para realizar esta ação.', 'price-from-sheet-woocommerce'));
+            wp_die(__('You do not have permission to perform this action.', 'price-from-sheet-woocommerce'));
         }
         
         try {
-            // Cria um arquivo Excel simples usando XML
-            $filename = 'modelo-importacao-precos.xlsx';
+            // Create a simple Excel file using XML
+            $filename = 'price-import-template.xlsx';
             
-            // Define headers para download
+            // Define headers for download
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             header('Content-Disposition: attachment; filename="' . $filename . '"');
             header('Cache-Control: max-age=0');
             header('Pragma: no-cache');
             header('Expires: 0');
             
-            // Cria um arquivo Excel básico usando estrutura XML
+            // Create a basic Excel file using XML structure
             $this->create_simple_excel();
             
             exit;
             
         } catch (Exception $e) {
-            // Se falhar, redireciona para CSV
+            // If it fails, redirect to CSV
             wp_redirect(admin_url('admin-ajax.php?action=wcpfs_download_template&nonce=' . wp_create_nonce('wcpfs_template_nonce')));
             exit;
         }
     }
 
     /**
-     * Cria um arquivo Excel simples sem dependências externas
+     * Creates a simple Excel file without external dependencies
      */
     private function create_simple_excel() {
-        // Dados para o Excel
+        // Data for Excel
         $data = [
             ['sku', 'price', 'sale_price'],
-            ['EXEMPLO-001', '29.90', '24.90'],
-            ['EXEMPLO-002', '15.50', ''],
-            ['EXEMPLO-003', '89.99', '79.99']
+            ['SAMPLE-001', '29.90', '24.90'],
+            ['SAMPLE-002', '15.50', ''],
+            ['SAMPLE-003', '89.99', '79.99']
         ];
         
-        // Cria um arquivo temporário
+        // Create a temporary file
         $temp_file = tempnam(sys_get_temp_dir(), 'wcpfs_excel_');
         
-        // Cria o conteúdo XML do Excel
+        // Create the XML content for Excel
         $xml_content = $this->generate_excel_xml($data);
         
-        // Cria o arquivo ZIP (Excel é um ZIP com XMLs)
+        // Create the ZIP file (Excel is a ZIP with XMLs)
         $zip = new ZipArchive();
         if ($zip->open($temp_file, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
             
-            // Adiciona os arquivos necessários para um Excel válido
+            // Add the necessary files for a valid Excel
             $zip->addFromString('[Content_Types].xml', $this->get_content_types_xml());
             $zip->addFromString('_rels/.rels', $this->get_rels_xml());
             $zip->addFromString('xl/workbook.xml', $this->get_workbook_xml());
@@ -390,16 +387,16 @@ class WCPFS_Admin {
             
             $zip->close();
             
-            // Envia o arquivo
+            // Send the file
             readfile($temp_file);
             unlink($temp_file);
         } else {
-            throw new Exception('Não foi possível criar o arquivo Excel');
+            throw new Exception('Could not create the Excel file');
         }
     }
 
     /**
-     * Gera o XML da planilha
+     * Generates the XML of the spreadsheet
      */
     private function generate_excel_xml($data) {
         $xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' . "\n";
@@ -413,10 +410,10 @@ class WCPFS_Admin {
                 $cell_ref = $col_letter . ($row_index + 1);
                 
                 if ($row_index === 0) {
-                    // Cabeçalho
+                    // Header
                     $xml .= '<c r="' . $cell_ref . '" t="inlineStr"><is><t>' . htmlspecialchars($cell) . '</t></is></c>' . "\n";
                 } else {
-                    // Dados
+                    // Data
                     if (is_numeric($cell) && $cell !== '') {
                         $xml .= '<c r="' . $cell_ref . '"><v>' . $cell . '</v></c>' . "\n";
                     } else {
@@ -434,7 +431,7 @@ class WCPFS_Admin {
     }
 
     /**
-     * Métodos auxiliares para criar os XMLs necessários do Excel
+     * Helper methods to generate required Excel XML files
      */
     private function get_content_types_xml() {
         return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -457,7 +454,7 @@ class WCPFS_Admin {
         return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
     <sheets>
-    <sheet name="Modelo" sheetId="1" r:id="rId1" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/>
+    <sheet name="Sheet1" sheetId="1" r:id="rId1" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/>
     </sheets>
     </workbook>';
     }

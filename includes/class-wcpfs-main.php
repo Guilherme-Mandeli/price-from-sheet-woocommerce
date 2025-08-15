@@ -85,7 +85,11 @@ class WCPFS_Main {
         // Localiza script para AJAX
         wp_localize_script('wcpfs-admin-script', 'wcpfs_ajax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('wcpfs_nonce')
+            'nonce' => wp_create_nonce('wcpfs_nonce'),
+            'i18n' => array(
+                'errors_found' => __('Errors found:', 'price-from-sheet-woocommerce'),
+                'server_error' => __('Error communicating with the server.', 'price-from-sheet-woocommerce')
+            )
         ));
     }
 }
