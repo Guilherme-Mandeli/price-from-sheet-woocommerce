@@ -1,51 +1,53 @@
+[English](README.md) | [Português](README.pt-BR.md)
+
 # WooCommerce Price From Sheet
 
-Plugin WordPress para importação em massa de preços de produtos WooCommerce através de planilhas CSV e Excel.
+WordPress plugin for bulk importing WooCommerce product prices via CSV and Excel spreadsheets.
 
-## 📋 Visão Geral
+## 📋 Overview
 
-O **Price From Sheet | WooCommerce** é um plugin que permite atualizar preços de centenas ou milhares de produtos WooCommerce de uma só vez, utilizando arquivos CSV ou Excel.
-Em vez de alterar produtos manualmente um por um, você pode fazer tudo em apenas alguns cliques!
+**Price From Sheet | WooCommerce** is a plugin that allows you to update prices for hundreds or thousands of WooCommerce products at once using CSV or Excel files.  
+Instead of manually editing products one by one, you can do it all in just a few clicks!
 
-## 🎯 Funcionalidades Principais
+## 🎯 Key Features
 
-- ✅ Importação em massa de preços via CSV (`.csv`) ou Excel (`.xlsx`, `.xls`)  
-- ✅ Suporte a preços promocionais (`sale_price`)  
-- ✅ Dois modos de atualização: atualizar preços existentes ou apenas adicionar novos  
-- ✅ Interface intuitiva integrada ao painel do WooCommerce  
-- ✅ Validação robusta de dados com relatórios detalhados de erros  
-- ✅ Templates prontos para download (CSV e Excel)  
-- ✅ Suporte completo ao UTF-8 para caracteres especiais  
-- ✅ Compatibilidade com HPOS (High-Performance Order Storage)  
+- ✅ Bulk price import via CSV (`.csv`) or Excel (`.xlsx`, `.xls`)  
+- ✅ Support for sale prices (`sale_price`)  
+- ✅ Two update modes: update existing prices or only add new ones  
+- ✅ Intuitive interface integrated into WooCommerce dashboard  
+- ✅ Robust data validation with detailed error reports  
+- ✅ Ready-to-use templates for download (CSV and Excel)  
+- ✅ Full UTF-8 support for special characters  
+- ✅ HPOS (High-Performance Order Storage) compatible  
 
-## 🚀 Instalação
+## 🚀 Installation
 
-### Requisitos
+### Requirements
 
 - WordPress 5.0+  
 - WooCommerce 5.0+  
 - PHP 7.4+  
-- Extensões PHP: `zip`, `xml`  
+- PHP extensions: `zip`, `xml`  
 
-### Passos de Instalação
+### Installation Steps
 
-1. Clone o repositório na pasta plugin do seu site WordPress:
+1. Clone the repository into your WordPress plugins folder:
 ```
 git clone https://github.com/Guilherme-Mandeli/price-from-sheet-woocommerce.git
 ```
-ou via SSH
+or via SSH
 ```
 git clone git@github.com:Guilherme-Mandeli/price-from-sheet-woocommerce.git
 ```
-ou importe o arquivo ZIP como plugin no WordPress.
-2. Ative o plugin no painel do WordPress em **Plugins > Plugins Instalados**.  
-3. Acesse o plugin em **WooCommerce > Price From Sheet**.
+or upload the ZIP file as a WordPress plugin.  
+2. Activate the plugin in the WordPress dashboard under **Plugins > Installed Plugins**.  
+3. Access the plugin under **WooCommerce > Price From Sheet**.
 
-## 📊 Como Usar
+## 📊 How to Use
 
-### 1. Preparando sua Planilha
+### 1. Preparing Your Spreadsheet
 
-**Formato Básico (Obrigatório)**
+**Basic Format (Required)**
 
 | sku      | price |
 |----------|-------|
@@ -53,194 +55,194 @@ ou importe o arquivo ZIP como plugin no WordPress.
 | PROD-002 | 15.50 |
 | PROD-003 | 89.99 |
 
-**Formato Completo (Com Preço Promocional)**
+**Full Format (With Sale Price)**
 
 | sku      | price | sale_price |
 |----------|-------|------------|
 | PROD-001 | 29.90 | 24.90      |
 | PROD-002 | 15.50 |            |
-| PROD-003 | 89.99 | sem valor  |
+| PROD-003 | 89.99 | no value   |
 
-**Palavras-chave suportadas**
+**Supported Keywords**
 
-Coluna: sale_price
+Column: sale_price
 - null, none, empty
 - nulo, vazio, nenhum, sem valor
-- vacío, ninguno,sin valor
+- vacío, ninguno, sin valor
 
-As palavras chaves acima removerão o valor do preço promocional
+These keywords will remove the sale price value.
 
-**Regras Importantes**
+**Important Rules**
 
-- **SKU:** Deve ser exatamente igual ao cadastrado no WooCommerce  
-- **Preços:** Use ponto (`.`) como separador decimal (ex: 29.90)  
-- **Arquivo:** Salve como CSV (separado por vírgulas) ou Excel  
-- **Codificação:** UTF-8 para evitar problemas com acentos  
-- **Tamanho máximo:** 10MB  
+- **SKU:** Must match exactly what is registered in WooCommerce  
+- **Prices:** Use a dot (`.`) as the decimal separator (e.g., 29.90)  
+- **File:** Save as CSV (comma-separated) or Excel  
+- **Encoding:** UTF-8 to avoid issues with accents  
+- **Maximum size:** 10MB  
 
-### 2. Importando Preços
+### 2. Importing Prices
 
-1. Escolha o arquivo: Clique em **Escolher arquivo** e selecione sua planilha  
-2. Selecione o modo:
-   - **Atualizar preços existentes:** Define o novo valor para todos os produtos listados  
-   - **Apenas adicionar novos preços:** Define valor apenas para produtos sem preço definido  
-3. Execute a importação: Clique em **Importar Agora** e aguarde o processo  
+1. Select the file: Click **Choose File** and select your spreadsheet  
+2. Select the mode:
+   - **Update existing prices:** Sets the new value for all listed products  
+   - **Only add new prices:** Sets value only for products without a defined price  
+3. Execute the import: Click **Import Now** and wait for the process  
 
-### 3. Templates Prontos
+### 3. Ready-to-Use Templates
 
-O plugin oferece templates prontos para download:
+The plugin offers ready-to-use templates:
 
-- **Template CSV:** Formato básico para importação  
-- **Template Excel:** Formato Excel com estrutura correta  
+- **CSV Template:** Basic format for import  
+- **Excel Template:** Excel format with correct structure  
 
-Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
+Access them in **WooCommerce > Price From Sheet** and click the download buttons.
 
-## 🏗️ Arquitetura do Sistema
+## 🏗️ System Architecture
 
-### Estrutura de Arquivos
+### File Structure
 
-**Classes Principais**
+**Main Classes**
 
 - **WCPFS_Main**  
-  - Inicialização do plugin  
-  - Carregamento de scripts e estilos  
-  - Gerenciamento de hooks do WordPress  
+  - Plugin initialization  
+  - Loading scripts and styles  
+  - Managing WordPress hooks  
 
 - **WCPFS_Admin**  
-  - Interface administrativa  
-  - Geração de templates  
-  - Manipulação de requisições AJAX  
-  - Página de configurações e guia completo  
+  - Admin interface  
+  - Template generation  
+  - Handling AJAX requests  
+  - Settings page and full guide  
 
 - **WCPFS_Importer**  
-  - Processamento de arquivos CSV e Excel  
-  - Validação de dados  
-  - Atualização de produtos no WooCommerce  
-  - Geração de relatórios de erro  
+  - CSV and Excel file processing  
+  - Data validation  
+  - Updating WooCommerce products  
+  - Generating error reports  
 
-## 🔧 Funcionalidades Técnicas
+## 🔧 Technical Features
 
-**Processamento de Arquivos**
+**File Processing**
 
-- CSV: Leitura nativa com `fgetcsv()`  
-- Excel: Utiliza PHPSpreadsheet para arquivos `.xlsx/.xls`  
-- Validação: Verificação de formato, tamanho e estrutura  
-- Encoding: Suporte completo a UTF-8 com remoção de BOM  
+- CSV: Native reading with `fgetcsv()`  
+- Excel: Uses PHPSpreadsheet for `.xlsx/.xls` files  
+- Validation: Checks format, size, and structure  
+- Encoding: Full UTF-8 support with BOM removal  
 
-**Validações Implementadas**
+**Implemented Validations**
 
-- ✅ Verificação de SKU existente no WooCommerce  
-- ✅ Validação de formato de preços (números positivos)  
-- ✅ Verificação de preço promocional menor que preço regular  
-- ✅ Detecção de linhas vazias ou incompletas  
-- ✅ Relatório detalhado de erros com número da linha  
+- ✅ Check if SKU exists in WooCommerce  
+- ✅ Validate price format (positive numbers)  
+- ✅ Ensure sale price is lower than regular price  
+- ✅ Detect empty or incomplete rows  
+- ✅ Detailed error report with line numbers  
 
-**Segurança**
+**Security**
 
-- ✅ Verificação de nonces em todas as requisições AJAX  
-- ✅ Validação de permissões (`manage_woocommerce`)  
-- ✅ Sanitização de dados de entrada  
-- ✅ Prevenção de acesso direto aos arquivos  
+- ✅ Nonce verification on all AJAX requests  
+- ✅ Permission checks (`manage_woocommerce`)  
+- ✅ Input data sanitization  
+- ✅ Prevent direct file access  
 
-## 🐛 Solução de Problemas
+## 🐛 Troubleshooting
 
-**Erros Comuns**
+**Common Errors**
 
-- **"Produto com SKU não encontrado"**  
-  Causa: SKU na planilha não existe no WooCommerce  
-  Solução: Verificar se o SKU está correto e existe no sistema  
+- **"Product with SKU not found"**  
+  Cause: SKU in the spreadsheet does not exist in WooCommerce  
+  Solution: Verify that the SKU is correct and exists in the system  
 
-- **"Linha inválida: SKU ou preço não encontrado"**  
-  Causa: Linha da planilha está incompleta  
-  Solução: Garantir que todas as linhas tenham SKU e preço  
+- **"Invalid row: SKU or price not found"**  
+  Cause: Row in spreadsheet is incomplete  
+  Solution: Ensure all rows have SKU and price  
 
-- **"Preço inválido"**  
-  Causa: Preço não é um número válido  
-  Solução: Usar apenas números com ponto como separador decimal  
+- **"Invalid price"**  
+  Cause: Price is not a valid number  
+  Solution: Use only numbers with dot as decimal separator  
 
-**Boas Práticas**
+**Best Practices**
 
-- 🔄 Sempre faça backup antes de importar  
-- 🧪 Teste pequeno: Comece com poucos produtos para testar  
-- ✅ Verificar SKUs: Confirme se os SKUs estão corretos  
-- 🔤 Usar UTF-8: Para evitar problemas com acentos  
+- 🔄 Always backup before importing  
+- 🧪 Small test: Start with a few products to test  
+- ✅ Verify SKUs: Make sure SKUs are correct  
+- 🔤 Use UTF-8: To avoid accent issues  
 
-## 📈 Exemplo Prático
+## 📈 Practical Example
 
-**Cenário:** Aumento de 10% em 500 produtos
+**Scenario:** Increase prices by 10% for 500 products
 
-1. Exportar produtos atuais: Use **WooCommerce > Produtos > Exportar**  
-2. Calcular novos preços: Abra no Excel/Google Sheets e crie fórmula para aumentar 10%  
-3. Importar novos preços: Salve como CSV ou Excel e importe usando este plugin  
+1. Export current products: Use **WooCommerce > Products > Export**  
+2. Calculate new prices: Open in Excel/Google Sheets and create a formula to increase by 10%  
+3. Import new prices: Save as CSV or Excel and import using this plugin  
 
-## 🔒 Segurança
+## 🔒 Security
 
-- Validação de Nonce em todas as requisições AJAX  
-- Verificação de permissões (`manage_woocommerce`)  
-- Sanitização de todos os dados de entrada  
-- Validação de arquivos: tipo, tamanho e estrutura  
-- Prevenção de XSS: Escape de saída  
+- Nonce validation on all AJAX requests  
+- Permission checks (`manage_woocommerce`)  
+- Sanitization of all input data  
+- File validation: type, size, and structure  
+- XSS prevention: output escaping  
 
-**Recomendações**
+**Recommendations**
 
-- Mantenha backups regulares  
-- Teste em ambiente de desenvolvimento primeiro  
-- Monitore logs de erro  
-- Limite acesso apenas a usuários autorizados  
+- Keep regular backups  
+- Test in a development environment first  
+- Monitor error logs  
+- Limit access to authorized users only  
 
-## 👥 Desenvolvimento
+## 👥 Development
 
-**Desenvolvedor Principal**
+**Lead Developer**
 
 - Guilherme Mandeli  
   - 🌐 Website: [srmandeli.contact](https://srmandeli.contact)  
   - 📧 Email: guil.mandeli@gmail.com  
 
-**Empresa**
+**Company**
 
 - Hooma  
   - 🌐 Website: [hooma.com.br](https://hooma.com.br)  
-  - 📧 Suporte: gmandeli@hooma.com.br
+  - 📧 Support: gmandeli@hooma.com.br
 
-## 📄 Licença
+## 📄 License
 
-Este plugin é licenciado sob a **GPL v2** ou posterior.
+This plugin is licensed under **GPL v2** or later.
 
 ## 🔄 Changelog
 
-**Versão 1.0.0 (2025-8-15)**
+**Version 1.0.0 (2025-8-15)**
 
-- ✨ Lançamento inicial  
-- ✅ Suporte a importação CSV e Excel  
-- ✅ Interface administrativa completa  
-- ✅ Validações robustas  
-- ✅ Templates para download  
-- ✅ Suporte a preços promocionais  
-- ✅ Compatibilidade com HPOS  
+- ✨ Initial release  
+- ✅ CSV and Excel import support  
+- ✅ Full admin interface  
+- ✅ Robust validations  
+- ✅ Downloadable templates  
+- ✅ Sale price support  
+- ✅ HPOS compatibility  
 
-## 🆘 Suporte
+## 🆘 Support
 
-**Canais de Suporte**
+**Support Channels**
 
-1. Documentação: Este README  
+1. Documentation: This README  
 2. Website: [hooma.com.br](https://hooma.com.br)  
-3. Issues: GitHub Issues (se aplicável)  
-4. Email: Através do website da Hooma ou gmandeli@hooma.com.br
+3. Issues: GitHub Issues (if applicable)  
+4. Email: Through Hooma website or gmandeli@hooma.com.br
 
 **FAQ**
 
-- **Posso importar outros campos além do preço?**  
-  Atualmente apenas preços regulares e promocionais. Outros campos estão no roadmap.  
+- **Can I import fields other than price?**  
+  Currently only regular and sale prices. Other fields are on the roadmap.  
 
-- **Qual o limite de produtos por importação?**  
-  Recomendamos até 5000 produtos. Para mais, divida em lotes menores.  
+- **What is the limit of products per import?**  
+  We recommend up to 5000 products. For more, split into smaller batches.  
 
-- **O plugin funciona com produtos variáveis?**  
-  Sim, use o SKU específico de cada variação.  
+- **Does the plugin work with variable products?**  
+  Yes, use the specific SKU of each variation.  
 
-- **Posso desfazer uma importação?**  
-  Não há função de desfazer. Sempre faça backup antes de importar.  
+- **Can I undo an import?**  
+  There is no undo function. Always backup before importing.  
 
-💡 Precisa de ajuda? Visite [hooma.com.br](https://hooma.com.br) para suporte técnico.  
+💡 Need help? Visit [hooma.com.br](https://hooma.com.br) for technical support.  
 
-⭐ Gostou do plugin? Considere deixar uma avaliação e compartilhar com outros desenvolvedores!
+⭐ Enjoying the plugin? Consider leaving a review and sharing it with other developers!
