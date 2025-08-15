@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Price From Sheet | WooCommerce
  * Plugin URI: https://hooma.com.br
- * Description: Plugin para importar preços de produtos WooCommerce a partir de planilhas.
+ * Description: Import WooCommerce product prices from CSV and Excel spreadsheets.
  * Version: 1.0.0
  * Author: Hooma
  * Author URI: https://hooma.com.br
