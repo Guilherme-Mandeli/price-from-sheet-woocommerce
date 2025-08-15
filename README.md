@@ -2,14 +2,10 @@
 
 Plugin WordPress para importação em massa de preços de produtos WooCommerce através de planilhas CSV e Excel.
 
----
-
 ## 📋 Visão Geral
 
 O **Price From Sheet | WooCommerce** é um plugin que permite atualizar preços de centenas ou milhares de produtos WooCommerce de uma só vez, utilizando arquivos CSV ou Excel.
 Em vez de alterar produtos manualmente um por um, você pode fazer tudo em apenas alguns cliques!
-
----
 
 ## 🎯 Funcionalidades Principais
 
@@ -21,8 +17,6 @@ Em vez de alterar produtos manualmente um por um, você pode fazer tudo em apena
 - ✅ Templates prontos para download (CSV e Excel)  
 - ✅ Suporte completo ao UTF-8 para caracteres especiais  
 - ✅ Compatibilidade com HPOS (High-Performance Order Storage)  
-
----
 
 ## 🚀 Instalação
 
@@ -46,8 +40,6 @@ git clone git@github.com:Guilherme-Mandeli/price-from-sheet-woocommerce.git
 ou importe o arquivo ZIP como plugin no WordPress.
 2. Ative o plugin no painel do WordPress em **Plugins > Plugins Instalados**.  
 3. Acesse o plugin em **WooCommerce > Price From Sheet**.
-
----
 
 ## 📊 Como Usar
 
@@ -103,8 +95,6 @@ O plugin oferece templates prontos para download:
 
 Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
 
----
-
 ## 🏗️ Arquitetura do Sistema
 
 ### Estrutura de Arquivos
@@ -127,8 +117,6 @@ Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
   - Validação de dados  
   - Atualização de produtos no WooCommerce  
   - Geração de relatórios de erro  
-
----
 
 ## 🔧 Funcionalidades Técnicas
 
@@ -154,8 +142,6 @@ Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
 - ✅ Sanitização de dados de entrada  
 - ✅ Prevenção de acesso direto aos arquivos  
 
----
-
 ## 🐛 Solução de Problemas
 
 **Erros Comuns**
@@ -179,8 +165,6 @@ Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
 - ✅ Verificar SKUs: Confirme se os SKUs estão corretos  
 - 🔤 Usar UTF-8: Para evitar problemas com acentos  
 
----
-
 ## 📈 Exemplo Prático
 
 **Cenário:** Aumento de 10% em 500 produtos
@@ -188,8 +172,6 @@ Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
 1. Exportar produtos atuais: Use **WooCommerce > Produtos > Exportar**  
 2. Calcular novos preços: Abra no Excel/Google Sheets e crie fórmula para aumentar 10%  
 3. Importar novos preços: Salve como CSV ou Excel e importe usando este plugin  
-
----
 
 ## 🔒 Segurança
 
@@ -206,8 +188,6 @@ Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
 - Monitore logs de erro  
 - Limite acesso apenas a usuários autorizados  
 
----
-
 ## 👥 Desenvolvimento
 
 **Desenvolvedor Principal**
@@ -222,13 +202,9 @@ Acesse em **WooCommerce > Price From Sheet** e clique nos botões de download.
   - 🌐 Website: [hooma.com.br](https://hooma.com.br)  
   - 📧 Suporte: gmandeli@hooma.com.br
 
----
-
 ## 📄 Licença
 
 Este plugin é licenciado sob a **GPL v2** ou posterior.
-
----
 
 ## 🔄 Changelog
 
@@ -241,8 +217,6 @@ Este plugin é licenciado sob a **GPL v2** ou posterior.
 - ✅ Templates para download  
 - ✅ Suporte a preços promocionais  
 - ✅ Compatibilidade com HPOS  
-
----
 
 ## 🆘 Suporte
 
