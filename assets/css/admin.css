@@ -87,6 +87,22 @@
     border-radius: 8px;
     color: #333;
 }
+.wcpfs-close-btn {
+    float: right;
+    border-radius: 50px;
+    border: unset;
+    background: rgba(0, 0, 0, .0);
+    width: 30px;
+    height: 30px;
+    padding: 0 0 3px 0;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1em;
+    color: #666;
+}
+.wcpfs-close-btn:hover {
+    background: rgba(0, 0, 0, .06);
+}
 
 #wcpfs-import-results h3 {
     margin-top: 0;

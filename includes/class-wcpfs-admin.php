@@ -13,6 +13,7 @@ class WCPFS_Admin {
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('wp_ajax_wcpfs_import_prices', array($this, 'handle_import_ajax'));
         add_action('wp_ajax_wcpfs_download_template', array($this, 'handle_download_template'));
+        add_action('wp_ajax_wcpfs_download_template_excel', array($this, 'handle_download_template_excel'));
     }
     
     /**
@@ -83,21 +84,31 @@ class WCPFS_Admin {
                 <div class="wcpfs-guide-content">
                     <!-- O que o Plugin Faz -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('O que o Plugin Faz?', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('O que o plugin faz?', 'price-from-sheet-woocommerce'); ?></h3>
                         <p><?php _e('Este plugin permite atualizar preços de centenas ou milhares de produtos WooCommerce de uma só vez, usando arquivos CSV ou Excel. Ao invés de alterar produto por produto manualmente, você pode fazer tudo em poucos cliques!', 'price-from-sheet-woocommerce'); ?></p>
+                        
+                        <h4><?php _e('Modos de atualizações:', 'price-from-sheet-woocommerce'); ?></h4>
+                        <ul>
+                            <li><?php _e('<strong>Atualizar preços existentes:</strong> será definido o novo valor de todos os produtos listados no arquivo', 'price-from-sheet-woocommerce'); ?></li>
+                            <li><?php _e('<strong>Apenas adicionar novos preços:</strong> será definido o novo valor somente para os produtos sem preço definido que estejam listados no arquivo', 'price-from-sheet-woocommerce'); ?></li>
+                        </ul>
                     </div>
                     
                     <!-- Preparando a Planilha -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Preparando Sua Planilha', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Preparando sua planilha', 'price-from-sheet-woocommerce'); ?></h3>
                         <!-- Botão para baixar modelo CSV -->
                         <div class="wcpfs-template-download" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
                             <a href="<?php echo admin_url('admin-ajax.php?action=wcpfs_download_template&nonce=' . wp_create_nonce('wcpfs_template_nonce')); ?>" class="button button-secondary">
                                 <span class="dashicons dashicons-download" style="margin-right: 2px; padding-top: 5px"></span>
                                 <?php _e('Baixar Modelo | CSV', 'price-from-sheet-woocommerce'); ?>
                             </a>
+                            <a href="<?php echo admin_url('admin-ajax.php?action=wcpfs_download_template_excel&nonce=' . wp_create_nonce('wcpfs_template_nonce')); ?>" class="button button-secondary">
+                                <span class="dashicons dashicons-download" style="margin-right: 2px; padding-top: 5px"></span>
+                                <?php _e('Baixar Modelo | Excel', 'price-from-sheet-woocommerce'); ?>
+                            </a>
                             <small style="display: block; margin-top: 5px; color: #666;">
-                                <?php _e('Baixe um arquivo CSV modelo com a estrutura correta para importação.', 'price-from-sheet-woocommerce'); ?>
+                                <?php _e('Baixe um arquivo modelo com a estrutura correta para importação.', 'price-from-sheet-woocommerce'); ?>
                             </small>
                         </div>
                         <div class="wcpfs-format-example">
@@ -137,7 +148,7 @@ class WCPFS_Admin {
                             <ul>
                                 <li><?php _e('<strong>SKU:</strong> Deve ser exatamente igual ao cadastrado no WooCommerce', 'price-from-sheet-woocommerce'); ?></li>
                                 <li><?php _e('<strong>Preços:</strong> Use ponto (.) como separador decimal (ex: 29.90)', 'price-from-sheet-woocommerce'); ?></li>
-                                <li><?php _e('<strong>Arquivo:</strong> Salve como CSV (separado por vírgulas)', 'price-from-sheet-woocommerce'); ?></li>
+                                <li><?php _e('<strong>Arquivo:</strong> Salve como CSV (separado por vírgulas) ou como arquivo Excel respeitando o nome das colunas na primeira linha', 'price-from-sheet-woocommerce'); ?></li>
                                 <li><?php _e('<strong>Codificação:</strong> UTF-8 para evitar problemas com acentos', 'price-from-sheet-woocommerce'); ?></li>
                             </ul>
                         </div>
@@ -145,7 +156,7 @@ class WCPFS_Admin {
                     
                     <!-- Como Usar -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Como Usar o Plugin', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Como usar', 'price-from-sheet-woocommerce'); ?></h3>
                         <div class="wcpfs-steps">
                             <div class="wcpfs-step">
                                 <div class="wcpfs-step-number">1</div>
@@ -173,7 +184,7 @@ class WCPFS_Admin {
                     
                     <!-- Solucionando Problemas -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Solucionando Problemas Comuns', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Solucionando problemas comuns', 'price-from-sheet-woocommerce'); ?></h3>
                         
                         <div class="wcpfs-problem">
                             <h4><?php _e('"Produto com SKU não encontrado"', 'price-from-sheet-woocommerce'); ?></h4>
@@ -200,7 +211,7 @@ class WCPFS_Admin {
                     
                     <!-- Dicas Importantes -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Dicas Importantes', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Dicas importantes', 'price-from-sheet-woocommerce'); ?></h3>
                         
                         <div class="wcpfs-tips">
                             <div class="wcpfs-tip wcpfs-tip-success">
@@ -227,7 +238,7 @@ class WCPFS_Admin {
                     
                     <!-- Exemplo Prático -->
                     <div class="wcpfs-guide-section">
-                        <h3><?php _e('Exemplo Prático', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Exemplo prático', 'price-from-sheet-woocommerce'); ?></h3>
                         <div class="wcpfs-example">
                             <h4><?php _e('Cenário: Reajuste de 10% em 500 produtos', 'price-from-sheet-woocommerce'); ?></h4>
                             <ol>
@@ -240,7 +251,7 @@ class WCPFS_Admin {
                     
                     <!-- Suporte -->
                     <div class="wcpfs-guide-section wcpfs-support-section">
-                        <h3><?php _e('Precisa de Ajuda?', 'price-from-sheet-woocommerce'); ?></h3>
+                        <h3><?php _e('Precisa de ajuda?', 'price-from-sheet-woocommerce'); ?></h3>
                         <p><?php _e('Se encontrar problemas:', 'price-from-sheet-woocommerce'); ?></p>
                         <ul>
                             <li><?php _e('1. Verifique os logs na seção de resultados acima', 'price-from-sheet-woocommerce'); ?></li>
@@ -313,5 +324,148 @@ class WCPFS_Admin {
         fclose($output);
         exit;
     }
-}
-?>
+
+    public function handle_download_template_excel() {
+        // Verifica nonce
+        if (!wp_verify_nonce($_GET['nonce'], 'wcpfs_template_nonce')) {
+            wp_die(__('Acesso negado.', 'price-from-sheet-woocommerce'));
+        }
+        
+        // Verifica permissões
+        if (!current_user_can('manage_woocommerce')) {
+            wp_die(__('Você não tem permissão para realizar esta ação.', 'price-from-sheet-woocommerce'));
+        }
+        
+        try {
+            // Cria um arquivo Excel simples usando XML
+            $filename = 'modelo-importacao-precos.xlsx';
+            
+            // Define headers para download
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment; filename="' . $filename . '"');
+            header('Cache-Control: max-age=0');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+            
+            // Cria um arquivo Excel básico usando estrutura XML
+            $this->create_simple_excel();
+            
+            exit;
+            
+        } catch (Exception $e) {
+            // Se falhar, redireciona para CSV
+            wp_redirect(admin_url('admin-ajax.php?action=wcpfs_download_template&nonce=' . wp_create_nonce('wcpfs_template_nonce')));
+            exit;
+        }
+    }
+
+    /**
+     * Cria um arquivo Excel simples sem dependências externas
+     */
+    private function create_simple_excel() {
+        // Dados para o Excel
+        $data = [
+            ['sku', 'price', 'sale_price'],
+            ['EXEMPLO-001', '29.90', '24.90'],
+            ['EXEMPLO-002', '15.50', ''],
+            ['EXEMPLO-003', '89.99', '79.99']
+        ];
+        
+        // Cria um arquivo temporário
+        $temp_file = tempnam(sys_get_temp_dir(), 'wcpfs_excel_');
+        
+        // Cria o conteúdo XML do Excel
+        $xml_content = $this->generate_excel_xml($data);
+        
+        // Cria o arquivo ZIP (Excel é um ZIP com XMLs)
+        $zip = new ZipArchive();
+        if ($zip->open($temp_file, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+            
+            // Adiciona os arquivos necessários para um Excel válido
+            $zip->addFromString('[Content_Types].xml', $this->get_content_types_xml());
+            $zip->addFromString('_rels/.rels', $this->get_rels_xml());
+            $zip->addFromString('xl/workbook.xml', $this->get_workbook_xml());
+            $zip->addFromString('xl/worksheets/sheet1.xml', $xml_content);
+            $zip->addFromString('xl/_rels/workbook.xml.rels', $this->get_workbook_rels_xml());
+            
+            $zip->close();
+            
+            // Envia o arquivo
+            readfile($temp_file);
+            unlink($temp_file);
+        } else {
+            throw new Exception('Não foi possível criar o arquivo Excel');
+        }
+    }
+
+    /**
+     * Gera o XML da planilha
+     */
+    private function generate_excel_xml($data) {
+        $xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' . "\n";
+        $xml .= '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' . "\n";
+        $xml .= '<sheetData>' . "\n";
+        
+        foreach ($data as $row_index => $row) {
+            $xml .= '<row r="' . ($row_index + 1) . '">' . "\n";
+            foreach ($row as $col_index => $cell) {
+                $col_letter = chr(65 + $col_index); // A, B, C...
+                $cell_ref = $col_letter . ($row_index + 1);
+                
+                if ($row_index === 0) {
+                    // Cabeçalho
+                    $xml .= '<c r="' . $cell_ref . '" t="inlineStr"><is><t>' . htmlspecialchars($cell) . '</t></is></c>' . "\n";
+                } else {
+                    // Dados
+                    if (is_numeric($cell) && $cell !== '') {
+                        $xml .= '<c r="' . $cell_ref . '"><v>' . $cell . '</v></c>' . "\n";
+                    } else {
+                        $xml .= '<c r="' . $cell_ref . '" t="inlineStr"><is><t>' . htmlspecialchars($cell) . '</t></is></c>' . "\n";
+                    }
+                }
+            }
+            $xml .= '</row>' . "\n";
+        }
+        
+        $xml .= '</sheetData>' . "\n";
+        $xml .= '</worksheet>';
+        
+        return $xml;
+    }
+
+    /**
+     * Métodos auxiliares para criar os XMLs necessários do Excel
+     */
+    private function get_content_types_xml() {
+        return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+    <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+    <Default Extension="xml" ContentType="application/xml"/>
+    <Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>
+    <Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>
+    </Types>';
+    }
+
+    private function get_rels_xml() {
+        return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+    <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>
+    </Relationships>';
+    }
+
+    private function get_workbook_xml() {
+        return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+    <sheets>
+    <sheet name="Modelo" sheetId="1" r:id="rId1" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/>
+    </sheets>
+    </workbook>';
+    }
+
+    private function get_workbook_rels_xml() {
+        return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+    <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>
+    </Relationships>';
+    }
+}?>
