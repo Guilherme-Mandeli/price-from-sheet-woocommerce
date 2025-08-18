@@ -40,6 +40,7 @@ ou via SSH
 git clone git@github.com:Guilherme-Mandeli/price-from-sheet-woocommerce.git
 ```
 ou importe o arquivo ZIP como plugin no WordPress.
+
 2. Ative o plugin no painel do WordPress em **Plugins > Plugins Instalados**.  
 3. Acesse o plugin em **WooCommerce > Price From Sheet**.
 
