@@ -61,7 +61,7 @@ or upload the ZIP file as a WordPress plugin.
 |----------|-------|------------|
 | PROD-001 | 29.90 | 24.90      |
 | PROD-002 | 15.50 |            |
-| PROD-003 | 89.99 | no value   |
+| PROD-003 | 89.99 | null       |
 
 **Supported Keywords**
 
